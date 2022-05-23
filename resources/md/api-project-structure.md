@@ -8,7 +8,7 @@
         -   `Host`
             -   Api
         -   `Modules`
-            -   Hure
+            -   Workflow
                 -   `Api`
                     -   Controllers
                     -   Extensions
@@ -32,7 +32,7 @@
                 -   Services
                 -   Serialization
                 -   Wrapper
-            -   `Dtos`
+            -   `DTOs`
                 -   Request
                 -   Response
             -   `Infrastructure`

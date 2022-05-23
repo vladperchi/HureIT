@@ -26,9 +26,21 @@
 
 HureIT is the HR application built as Modular Monolith, written in .NET Core 5.0. Each module is a separate vertical slice with its own custom architecture, typically hexagonal or onion, and the overall integration between the modules is mostly based on the event-driven approach to achieve greater autonomy between the modules.
 
-## Modular Architecture
+## Solution structure
 
 Modular Architecture is a software design in which a monolith is made better and modular with the importance of reusing components / modules. The same implemented in HureIT helps to be extended to support and operate with n-modules.
+
+`Host`
+Web application responsible for initializing and starting all the modules - loading configurations, running DB migrations, exposing public APIs etc.
+
+`Modules`
+Autonomous modules with the different set of responsibilities, highly decoupled from each other - there's no reference between the modules at all (such as shared projects for the common data contracts), and the synchronous communication & asynchronous integration (via events) is based on local contracts approach.
+
+-   Identity: Management of users/identity (register, login, permissions etc.).
+-   Workflow: Management of employees, permissions and types of permissions (create, complete, verify, search).
+
+`Shared`
+The set of shared components for the common abstractions & cross-cutting concerns. This Cross-cutting concerns would use interfaces/events. And yes, domain events are also included in the project using the Mediatr Handler. Each of the modules follows a clean / Onion / Hex architecture design.
 
 ### PRO
 
@@ -45,6 +57,8 @@ Modular Architecture is a software design in which a monolith is made better and
 -   Horizontal Scaling can be a concern. But this can be managed via load balancers.
 -   nce Interprocess Communication is used, messages may be lost during Application Termination. Microservices combat this ise by using external messaging brokers like Kafka, RabbitMQ.
 -   We can make use of message agents but no, let's keep it simple.
+
+Take a look in detail at the [structure][structure-url] of the solution
 
 ## Technology Stack
 
