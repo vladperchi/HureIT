@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+
+  seq:
+   container_name: seq_log
+   image: datalust/seq:latest
+   environment:
+      - ACCEPT_EULA=Y
+   ports:
+      - 5341:80
+   networks:
+      - hure
+   volumes:
+      - seq-data:/data
+
+networks:
+  hure:
+     name: hure
+
+volumes:
+  seq-data:
