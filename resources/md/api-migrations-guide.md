@@ -34,7 +34,7 @@ Navigate terminal to Modules.Identity.Infrastructure and run the following.
 
 -   `Add-Migration Initial -context IdentityDbContext -o Persistence/Migrations/`
 
-### Hure
+### Workflow
 
 Navigate terminal to Modules.Inmo.Infrastructure and run the following.
 
