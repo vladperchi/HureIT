@@ -1,0 +1,51 @@
+# Structure
+
+-   `src`
+    -   `Client`
+        -   `Web`
+            -   UI
+    -   `Server`
+        -   `Host`
+            -   Api
+        -   `Modules`
+            -   Hure
+                -   `Api`
+                    -   Controllers
+                    -   Extensions
+                -   `Core`
+                    -   Entities
+                    -   Interfaces
+                    -   Exceptions
+                    -   Handlers
+                    -   Commands
+                    -   Queries
+                -   `Infrastructure`
+                    -   Context
+                    -   Persistence
+        -   `Shared`
+            -   `Core`
+                -   Domain
+                -   Features
+                -   Interfaces
+                -   Exceptions
+                -   Logging
+                -   Services
+                -   Serialization
+                -   Wrapper
+            -   `Dtos`
+                -   Request
+                -   Response
+            -   `Infrastructure`
+                -   Middlewares
+                -   Persistence
+                -   Services
+                -   Mappings
+                -   Utilities
+                -   Swagger
+-   `tests`
+    -   `FunctionalTests`
+        -   ControllerApis
+    -   `IntegrationTests`
+        -   Data
+    -   `UnitTests`
+        -   Core
