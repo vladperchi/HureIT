@@ -24,7 +24,9 @@
 
 ## About This Project
 
-HureIT is the HR application built as Modular Monolith, written in .NET Core 5.0. Each module is a separate vertical slice with its own custom architecture, typically hexagonal or onion, and the overall integration between the modules is mostly based on the event-driven approach to achieve greater autonomy between the modules.
+HureIT is HR departament application built Modular Monolith architecture, written in .NET Core 5.0. Each module is a separate vertical slice with its own custom architecture and the overall integration between the modules is mostly based on the event-driven approach to achieve greater autonomy between the modules.
+
+There actually was no real need to implement microservices. For this, a well designed monolith application would also do the trick. I was clear to have the API and UI seperated, to give oppurtunities to multiple client apps in the future. For API, ASP.NET Core 5.0 and for the UI Angular 12 Material was my obvious choice.
 
 ## Solution structure
 
@@ -146,8 +148,15 @@ Then you can continue the list listed below:
    `"mssql": "Data Source=.;Initial Catalog=HureDB;Integrated Security=True;MultipleActiveResultSets=True"`
 4. That is all you need to configure the API. Just create and run the API project.
 5. By default, the database is migrated. Take a look at the [migrations][migrations-url] of the solution
-6. Some default data is also included in this database, such as roles, users, owners, properties, images etc.
+6. Some default data is also included in this database, such as roles, users, employees, etc.
 7. Browse to https://localhost:5001/ to Api HureIT!
+
+## Running Angular
+
+-   Navigate to hureit\src\client via terminal.
+-   Run `npm install` to install all the required packages
+-   Run `ng serve`
+-   Navigate to https://localhost:4200 or https://localhost:4201 on your browser
 
 ## Default Roles & Credentials
 
