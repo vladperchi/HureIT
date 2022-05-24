@@ -6,16 +6,56 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{B0569FD5-BAD8-49C9-AE26-DDBD6D880D6A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "compose", "compose", "{4F71B828-2867-45F2-AD85-1BC659A0A24E}"
+	ProjectSection(SolutionItems) = preProject
+		compose\infrastructure.yml = compose\infrastructure.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postman", "postman", "{141BDD48-E9B2-41DB-A1F5-2B4B3413F46A}"
+	ProjectSection(SolutionItems) = preProject
+		postman\HureIT.Postman.json = postman\HureIT.Postman.json
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C68EE75F-42FB-45C9-ACE7-D26319D04DEA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{650CD269-5296-44A8-9A3B-3DAA354EF9E7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{95373CF0-F613-46A5-9F79-7197DB4925D0}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		hureit.ruleset = hureit.ruleset
+		LICENSE = LICENSE
+		README.md = README.md
+		stylecop.json = stylecop.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "md", "md", "{F85BF170-722B-421D-A593-1E990E9C2160}"
+	ProjectSection(SolutionItems) = preProject
+		resources\md\api-migrations-guide.md = resources\md\api-migrations-guide.md
+		resources\md\api-project-structure.md = resources\md\api-project-structure.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "image", "image", "{ED190817-A889-4943-B280-4F1E7EF0CFAE}"
+	ProjectSection(SolutionItems) = preProject
+		resources\image\HureIT_Banner.png = resources\image\HureIT_Banner.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "client", "client", "{9B2D9B75-8D13-4FE6-83E0-7AF370E3926A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "server", "server", "{3E15F052-5A8B-48CC-93F2-2B7CE6956C96}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F85BF170-722B-421D-A593-1E990E9C2160} = {B0569FD5-BAD8-49C9-AE26-DDBD6D880D6A}
+		{ED190817-A889-4943-B280-4F1E7EF0CFAE} = {B0569FD5-BAD8-49C9-AE26-DDBD6D880D6A}
+		{9B2D9B75-8D13-4FE6-83E0-7AF370E3926A} = {C68EE75F-42FB-45C9-ACE7-D26319D04DEA}
+		{3E15F052-5A8B-48CC-93F2-2B7CE6956C96} = {C68EE75F-42FB-45C9-ACE7-D26319D04DEA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7D53698-3F9E-4455-8B58-898609081EAA}
