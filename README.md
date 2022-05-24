@@ -12,7 +12,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/vladperchi/HureIT">
-    <img src="https://github.com/vladperchi/HureIT/blob/master/resources/image/HureIT_Banner.png" alt="HureIT">
+    <img src="https://github.com/vladperchi/HureIT/blob/master/docs/image/HureIT_Banner.png" alt="HureIT">
   </a>
     <br />
     <a href="https://github.com/vladperchi/HureIT/issues">Report Bug</a>
