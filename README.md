@@ -232,7 +232,6 @@ Here are a few ways by which you can support.
 [postmancollection-url]: https://github.com/vladperchi/HureIT/blob/master/postman/HureIT.Postman.json
 [dockerwininstall-url]: https://docs.docker.com/docker-for-windows/install/
 [coredownload-url]: https://docs.microsoft.com/en-us/ef/core/
-[azuredatastudio-url]: https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15
 [dotnetdownload-url]: https://dotnet.microsoft.com/download/dotnet/5.0
 [structure-url]: https://github.com/vladperchi/HureIT/blob/master/resources/md/api-project-structure.md
 [migrations-url]: https://github.com/vladperchi/HureIT/blob/master/resources/md/api-migrations-guide.md
@@ -252,7 +251,6 @@ Here are a few ways by which you can support.
 [linkedin-url]: https://www.linkedin.com/in/vladperchi/
 [github-url]: https://github.com/vladperchi/
 [blog-url]: https://www.codewithvladperchi.com
-[facebook-url]: https://www.facebook.com/codewithvladperchi
 [twitter-code-url]: https://www.twitter.com/codewithvlad
 [twitter-vlad-url]: https://www.twitter.com/vladperchi
 [buymeacoffee-url]: https://www.buymeacoffee.com/codewithvlad
