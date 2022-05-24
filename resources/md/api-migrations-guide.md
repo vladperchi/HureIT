@@ -36,6 +36,6 @@ Navigate terminal to Modules.Identity.Infrastructure and run the following.
 
 ### Workflow
 
-Navigate terminal to Modules.Inmo.Infrastructure and run the following.
+Navigate terminal to Modules.Workflow.Infrastructure and run the following.
 
--   `Add-Migration Initial -context HureDbContext -o Persistence/Migrations/`
+-   `Add-Migration Initial -context WorkflowDbContext -o Persistence/Migrations/`
