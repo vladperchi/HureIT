@@ -77,6 +77,10 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [ ] Domain Driven Design
 -   [ ] Flexible Repository Pattern
 -   [ ] Entity Framework Core
+
+<details>
+  <summary>Click to See More!</summary>
+
 -   [ ] Auto DB Migrations
 -   [ ] Dapper Integration
 -   [ ] AutoMapper
@@ -100,6 +104,8 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [ ] File Upload
 -   [ ] Export Excel
 -   [ ] Docker Support
+
+</details>
 
 ## Project Status
 
