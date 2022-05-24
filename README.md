@@ -233,8 +233,8 @@ Here are a few ways by which you can support.
 [dockerwininstall-url]: https://docs.docker.com/docker-for-windows/install/
 [coredownload-url]: https://docs.microsoft.com/en-us/ef/core/
 [dotnetdownload-url]: https://dotnet.microsoft.com/download/dotnet/5.0
-[structure-url]: https://github.com/vladperchi/HureIT/blob/master/resources/md/api-project-structure.md
-[migrations-url]: https://github.com/vladperchi/HureIT/blob/master/resources/md/api-migrations-guide.md
+[structure-url]: https://github.com/vladperchi/HureIT/blob/master/docs/md/api-project-structure.md
+[migrations-url]: https://github.com/vladperchi/HureIT/blob/master/docs/md/api-migrations-guide.md
 [build-shield]: https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fvladperchi%2FHureIT%2Fbadge&style=flat-square
 [build-url]: https://github.com/vladperchi/HureIT/actions
 [contributors-shield]: https://img.shields.io/github/contributors/vladperchi/HureIT.svg?style=flat-square
