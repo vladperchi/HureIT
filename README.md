@@ -73,39 +73,15 @@ Take a look in detail at the [structure][structure-url] of the solution
 
 -   [x] Modular Architecture
 -   [x] Built on .NET 5.0
--   [x] Follows Clean Architecture Principles
+-   [x] Clean Architecture Principles
 -   [x] Domain Driven Design
--   [ ] Flexible Repository Pattern
 -   [x] Entity Framework Core
-
-<details>
-  <summary>Click to See More!</summary>
-
 -   [ ] Auto DB Migrations
--   [ ] Dapper Integration
--   [ ] AutoMapper
 -   [ ] Fluent Validations
 -   [ ] CQRS using MediatR
--   [ ] Middlewares
--   [ ] Hangfire
--   [ ] Custom Errors
--   [ ] Serilog Integration
--   [ ] In-Memory Database
--   [ ] Paginated API Responses
--   [ ] User & Role Based Permission
--   [ ] Identity Seeding
--   [ ] Database Seeding
--   [ ] JWT Authentication
--   [ ] HTTP Interceptor
+-   [ ] AutoMapper
 -   [ ] CRUD Operations
--   [ ] Custom EventLogs
--   [ ] API Versioning
--   [ ] Email Service
--   [ ] File Upload
--   [ ] Export Excel
--   [ ] Docker Support
-
-</details>
+-   [ ] Database Seeding
 
 ## Project Status
 
