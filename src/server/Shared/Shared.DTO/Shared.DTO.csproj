@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>HureIT.Shared.DTO</RootNamespace>
+        <AssemblyName>HureIT.Shared.DTO</AssemblyName>
+        <CodeAnalysisRuleSet />
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>HureIT.Shared.DTO.xml</DocumentationFile>
+        <CodeAnalysisRuleSet>..\..\..\..\HureIT.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>HureIT.Shared.DTO.xml</DocumentationFile>
+        <CodeAnalysisRuleSet>..\..\..\..\HureIT.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <AdditionalFiles Include="..\..\..\..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Identity\Logging\" />
+    <Folder Include="Identity\Roles\" />
+    <Folder Include="Identity\Tokens\" />
+    <Folder Include="Identity\Users\" />
+  </ItemGroup>
+
+</Project>
