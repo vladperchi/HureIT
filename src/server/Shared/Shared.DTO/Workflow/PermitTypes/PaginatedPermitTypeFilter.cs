@@ -1,14 +1,17 @@
 ﻿// --------------------------------------------------------------------------------------------------
-// <copyright file="GetAllPermissionTypesResponse.cs" company="HureIT">
+// <copyright file="PaginatedPermitTypeFilter.cs" company="HureIT">
 // Copyright (c) HureIT. All rights reserved.
 // Developer: Vladimir P. CHibás (vladperchi).
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 // </copyright>
 // --------------------------------------------------------------------------------------------------
 
-using System;
+using HureIT.Shared.DTO.Filters;
 
-namespace HureIT.Shared.DTO.Workflow.PermissionTypes
+namespace HureIT.Shared.DTO.Workflow.PermitTypes
 {
-    public record GetAllPermissionTypesResponse(Guid Id, string Name, string Description, string CodeInternal, bool IsEnabled);
+    public class PaginatedPermitTypeFilter : PaginatedFilter
+    {
+        public string SearchString { get; set; }
+    }
 }
