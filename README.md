@@ -32,7 +32,7 @@ There actually was no real need to implement microservices. For this, a well des
 
 Modular Architecture is a software design in which a monolith is made better and modular with the importance of reusing components / modules. The same implemented in HureIT helps to be extended to support and operate with n-modules.
 
-`Host`
+`Api`
 Web application responsible for initializing and starting all the modules - loading configurations, running DB migrations, exposing public APIs etc.
 
 `Modules`
@@ -71,12 +71,12 @@ Take a look in detail at the [structure][structure-url] of the solution
 
 ## Features & Plus
 
--   [ ] Modular Architecture
--   [ ] Built on .NET 5.0
--   [ ] Follows Clean Architecture Principles
--   [ ] Domain Driven Design
+-   [x] Modular Architecture
+-   [x] Built on .NET 5.0
+-   [x] Follows Clean Architecture Principles
+-   [x] Domain Driven Design
 -   [ ] Flexible Repository Pattern
--   [ ] Entity Framework Core
+-   [x] Entity Framework Core
 
 <details>
   <summary>Click to See More!</summary>
