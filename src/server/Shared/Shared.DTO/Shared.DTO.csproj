@@ -30,7 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Identity\Roles\" />
     <Folder Include="Identity\Tokens\" />
     <Folder Include="Identity\Users\" />
   </ItemGroup>
