@@ -29,8 +29,4 @@
     <AdditionalFiles Include="..\..\..\..\stylecop.json" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Identity\Users\" />
-  </ItemGroup>
-
 </Project>
