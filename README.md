@@ -77,11 +77,36 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [x] Domain Driven Design
 -   [x] Entity Framework Core
 -   [ ] Auto DB Migrations
--   [ ] Fluent Validations
--   [ ] CQRS using MediatR
--   [ ] AutoMapper
--   [ ] CRUD Operations
 -   [ ] Database Seeding
+-   [ ] CRUD Operations
+
+<details>
+  <summary>Click to See More!</summary>
+
+-   [ ] Repository Pattern
+-   [x] Fluent Validations
+-   [x] CQRS using MediatR
+-   [x] AutoMapper
+-   [ ] Dapper Integration
+-   [ ] Middlewares
+-   [x] Response Caching
+-   [ ] Hangfire Support
+-   [ ] Custom Errors
+-   [ ] Serilog Integration - File & SEQ
+-   [ ] In-Memory Database
+-   [x] Paginated API Responses
+-   [ ] User & Role Based Permission
+-   [ ] Identity Seeding
+-   [ ] JWT Authentication
+-   [ ] HTTP Interceptor
+-   [x] Custom EventLogs
+-   [ ] API Versioning
+-   [ ] Email Service
+-   [ ] File Upload
+-   [ ] Export Excel
+-   [ ] Docker Support
+
+</details>
 
 ## Project Status
 
