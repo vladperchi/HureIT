@@ -41,7 +41,7 @@ jobs:
         languages: ${{ matrix.language }}
 
     - name: Setup dotnet
-      uses: action/setup-dotnet@v3
+      uses: action/setup-dotnet@v2
       with:
         dotnet-version: '6.0.x'
 
