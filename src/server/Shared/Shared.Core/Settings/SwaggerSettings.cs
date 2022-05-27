@@ -1,0 +1,35 @@
+﻿// --------------------------------------------------------------------------------------------------
+// <copyright file="SwaggerSettings.cs" company="HureIT">
+// Copyright (c) HureIT. All rights reserved.
+// Developer: Vladimir P. CHibás (vladperchi).
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+// </copyright>
+// --------------------------------------------------------------------------------------------------
+
+namespace HureIT.Shared.Core.Settings
+{
+    public class SwaggerSettings
+    {
+        public bool Enable { get; set; }
+
+        public string Title { get; set; }
+
+        public string Version { get; set; }
+
+        public string Description { get; set; }
+
+        public string ContactName { get; set; }
+
+        public string ContactEmail { get; set; }
+
+        public string ContactUrl { get; set; }
+
+        public bool License { get; set; }
+
+        public string LicenseName { get; set; }
+
+        public string LicenseUrl { get; set; }
+
+        public string TermsUrl { get; set; }
+    }
+}
