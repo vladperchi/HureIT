@@ -83,27 +83,27 @@ Take a look in detail at the [structure][structure-url] of the solution
 <details>
   <summary>Click to See More!</summary>
 
--   [ ] Repository Pattern
 -   [x] Fluent Validations
 -   [x] CQRS using MediatR
 -   [x] AutoMapper
--   [ ] Dapper Integration
--   [ ] Middlewares
+-   [x] Secure DB Connection
+-   [x] DB Connection Validator
+-   [x] Middlewares
 -   [x] Response Caching
--   [ ] Hangfire Support
--   [ ] Custom Errors
--   [ ] Serilog Integration - File & SEQ
--   [ ] In-Memory Database
+-   [x] Hangfire Support
+-   [x] Custom Errors
+-   [x] Serilog Integration - File & SEQ
+-   [x] In-Memory Database
 -   [x] Paginated API Responses
 -   [ ] User & Role Based Permission
 -   [ ] Identity Seeding
 -   [ ] JWT Authentication
--   [ ] HTTP Interceptor
+-   [x] HTTP Interceptor
 -   [x] Custom EventLogs
--   [ ] API Versioning
--   [ ] Email Service
--   [ ] File Upload
--   [ ] Export Excel
+-   [x] API Versioning
+-   [x] Email Service
+-   [x] File Upload
+-   [x] Export Excel
 -   [ ] Docker Support
 
 </details>
