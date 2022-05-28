@@ -6,7 +6,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------
 
-namespace ElevatorIT.Shared.Core.Settings
+namespace HureIT.Shared.Core.Settings
 {
     public class CorsSettings
     {
