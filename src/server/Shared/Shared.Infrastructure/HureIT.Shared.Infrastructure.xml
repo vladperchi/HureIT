@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HureIT.Shared.Infrastructure</name>
+    </assembly>
+    <members>
+        <member name="T:HureIT.Shared.Infrastructure.Controllers.InternalControllerFeatureProvider">
+            <inheritdoc cref = "T:Microsoft.AspNetCore.Mvc.Controllers.ControllerFeatureProvider" />
+        </member>
+        <member name="T:HureIT.Shared.Infrastructure.HangfireJobs.HangfireAuthorizationFilter">
+            <inheritdoc cref = "T:Hangfire.Dashboard.IDashboardAuthorizationFilter" />
+        </member>
+        <member name="T:HureIT.Shared.Infrastructure.Services.ExcelService">
+            <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.IExcelService" />
+        </member>
+        <member name="T:HureIT.Shared.Infrastructure.Services.HangfireService">
+            <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.IJobService" />
+        </member>
+        <member name="T:HureIT.Shared.Infrastructure.Services.LoggerService">
+            <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.ILoggerService" />
+        </member>
+        <member name="T:HureIT.Shared.Infrastructure.Services.SmtpMailService">
+            <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.IMailService" />
+        </member>
+        <member name="T:HureIT.Shared.Infrastructure.Services.UploadService">
+            <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.IUploadService" />
+        </member>
+    </members>
+</doc>
