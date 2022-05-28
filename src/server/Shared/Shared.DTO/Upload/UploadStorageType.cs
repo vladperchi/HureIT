@@ -12,10 +12,10 @@ namespace HureIT.Shared.DTO.Upload
 {
     public enum UploadStorageType
     {
-        [Description(@"Images\User\Staff")]
+        [Description(@"Images\Staff")]
         Staff,
 
-        [Description(@"Images\Person\Employees")]
+        [Description(@"Images\Employees")]
         Employee
     }
 }
