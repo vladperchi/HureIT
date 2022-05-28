@@ -6,7 +6,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------
 
-namespace ElevatorIT.Shared.Core.Constants
+namespace HureIT.Shared.Core.Constants
 {
     public static class SchemesConstant
     {
