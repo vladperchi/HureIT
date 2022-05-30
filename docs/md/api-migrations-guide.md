@@ -4,8 +4,7 @@ HureIT currently operates with a MSSQL database provider. In future versions Pos
 
 The solution has the repeated default migrations created from the base. This guide is only and only in case you need to add a field to a table or modify some type of data in it. Next you will see how to proceed.
 
-Firstly, you need to make sure that valid connection strings are mentioned in the appSetting.json
-Next, set either to true in `PersistenceSettings`.
+Firstly, you need to make sure that valid connection strings are mentioned in the appSetting.json to true in `PersistenceSettings`.
 
 `"UseMsSql": true,`
 
