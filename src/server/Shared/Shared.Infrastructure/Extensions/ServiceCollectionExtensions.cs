@@ -26,7 +26,6 @@ using HureIT.Shared.Core.Constants;
 using ElevatorIT.Shared.Infrastructure.Services;
 using HureIT.Shared.Core.Interfaces.Services;
 using HureIT.Shared.Core.Interfaces.Persistence;
-using HureIT.Shared.Infrastructure.Persistence.Connection;
 
 [assembly: InternalsVisibleTo(StringKeys.AssemblyName)]
 
@@ -39,8 +38,6 @@ namespace HureIT.Shared.Infrastructure.Extensions
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddPersistenceSettings(config);
-            services.AddTransient<IConnectionDbSure, ConnectionDbSure>();
-            services.AddTransient<IConnectionDbValidator, ConnectionDbValidator>();
             services
                 .AddDatabaseContext<ApplicationDbContext>()
                 .AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());

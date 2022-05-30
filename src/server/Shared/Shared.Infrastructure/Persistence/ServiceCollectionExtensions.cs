@@ -8,6 +8,8 @@
 
 using System;
 using System.Net;
+using System.Threading.Tasks;
+
 using HureIT.Shared.Core.Constants;
 using HureIT.Shared.Core.Exceptions;
 using HureIT.Shared.Core.Extensions;
@@ -25,19 +27,23 @@ namespace HureIT.Shared.Infrastructure.Persistence
         public static IServiceCollection AddDatabaseContext<T>(this IServiceCollection services)
             where T : DbContext
         {
+            string dataProvider = string.Empty;
             var options = services.GetOptions<PersistenceSettings>(nameof(PersistenceSettings));
+
             if (options.UseMsSql)
             {
+                dataProvider = DataProviderKeys.SqlServer;
                 if (string.IsNullOrEmpty(options.ConnectionStrings.MSSQL))
                 {
-                    throw new InvalidOperationException($"Data Provider {DataProviderKeys.SqlServer.ToUpper()} is not configured.");
+                    throw new InvalidOperationException(string.Format("Data Provider {0} is not configured.", dataProvider.ToUpper()));
                 }
 
                 string connectionString = options.ConnectionStrings.MSSQL;
                 services.AddMSSQL<T>(connectionString);
             }
 
-            _logger.Information($"Current Data Provider: {DataProviderKeys.SqlServer.ToUpper()}");
+            _logger.Information(string.Format(
+                "DB connection sure and migration successfully for Data Provider {0}", dataProvider.ToUpper()));
             return services;
         }
 
@@ -50,7 +56,6 @@ namespace HureIT.Shared.Infrastructure.Persistence
                 using var scope = services.BuildServiceProvider().CreateScope();
                 var dbContext = scope.ServiceProvider.GetRequiredService<T>();
                 dbContext.Database.Migrate();
-                _logger.Information($"Migration Data Provider {DataProviderKeys.SqlServer.ToUpper()} Successful");
                 return services;
             }
             catch (Exception)
