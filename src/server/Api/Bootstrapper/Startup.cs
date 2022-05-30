@@ -6,6 +6,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------
 
+using HureIT.Modules.Identity.Api.Extensions;
 using HureIT.Shared.Core.Extensions;
 using HureIT.Shared.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
@@ -30,7 +31,8 @@ namespace HureIT.Bootstrapper
                 .AddDistributedMemoryCache()
                 .AddSerialization(_config)
                 .AddSharedInfrastructure(_config)
-                .AddSharedApplication(_config);
+                .AddSharedApplication(_config)
+                .AddIdentityModule(_config);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
