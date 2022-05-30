@@ -176,7 +176,7 @@ namespace HureIT.Shared.Infrastructure.Middlewares
                 Log.ForContext("ResponseHeaders", response.Headers
                     .ToDictionary(x => x.Key, x => x.Value.ToString()), destructureObjects: true)
                     .ForContext("ResponseBody", responseBody)
-                    .Information("HTTP {0} Response by {1} has Status Code {2}.", response.HttpContext, email, response.StatusCode);
+                    .Warning("HTTP Response Status Code {0}.", response.StatusCode);
                 LogContext.PushProperty("StackTrace", exception.StackTrace);
                 eBody.Seek(0, SeekOrigin.Begin);
                 await eBody.CopyToAsync(originalBody);
