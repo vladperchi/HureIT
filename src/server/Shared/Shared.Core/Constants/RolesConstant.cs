@@ -6,11 +6,11 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------
 
-namespace ElevatorIT.Shared.Core.Constants
+namespace HureIT.Shared.Core.Constants
 {
     public static class RolesConstant
     {
         public const string Administrator = "Administrator";
-        public const string Staff = "Staff";
+        public const string Operator = "Operator";
     }
 }
