@@ -22,9 +22,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
-using HureIT.Shared.Infrastructure.Persistence.Connection;
-using HureIT.Shared.Core.Interfaces.Persistence;
 using HureIT.Shared.Core.Constants;
+using ElevatorIT.Shared.Infrastructure.Services;
+using HureIT.Shared.Core.Interfaces.Services;
+using HureIT.Shared.Core.Interfaces.Persistence;
+using HureIT.Shared.Infrastructure.Persistence.Connection;
 
 [assembly: InternalsVisibleTo(StringKeys.AssemblyName)]
 
@@ -43,6 +45,7 @@ namespace HureIT.Shared.Infrastructure.Extensions
                 .AddDatabaseContext<ApplicationDbContext>()
                 .AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
 
+            services.AddScoped(typeof(IValidatorService), typeof(ValidatorService));
             services.AddScoped<IEventLogger, EventLogger>();
             services.AddApiVersioning(options =>
             {
