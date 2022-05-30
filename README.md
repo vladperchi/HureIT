@@ -87,7 +87,6 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [x] CQRS using MediatR
 -   [x] AutoMapper
 -   [x] Secure DB Connection
--   [x] DB Connection Validator
 -   [x] Middlewares
 -   [x] Response Caching
 -   [x] Hangfire Support
@@ -172,12 +171,12 @@ As soon you build and run your application, default users and roles get added to
 Default Roles are as follows.
 
 -   `Administrator`
--   `Staff`
+-   `Operator`
 
 Here are the credentials for the default users.
 
--   Email - admin@hureit.com / Pass: @AdminP4$$w0rd#
--   Email - vlad@hureit.com / Pass: @BasicP4$$w0rd#
+-   Email - `vladperchi@hureit.com` / Pass: `@4dm1nP4$$w0rd#`
+-   Email - `paulaandrea@hureit.com` / Pass: `@B4s1cP4$$w0rd#`
 
 You can use these credentials to generate JWT tokens in the `api/identity/tokens` endpoint.
 
