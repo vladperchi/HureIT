@@ -18,6 +18,7 @@ using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using HureIT.Shared.Core.Interfaces.Serialization.Serializer;
+using HureIT.Shared.Core.Interfaces.Services;
 
 namespace HureIT.Shared.Core.Extensions
 {
