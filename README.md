@@ -76,7 +76,7 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [x] Clean Architecture Principles
 -   [x] Domain Driven Design
 -   [x] Entity Framework Core
--   [ ] Auto DB Migrations
+-   [x] Auto DB Migrations
 -   [ ] Database Seeding
 -   [ ] CRUD Operations
 
