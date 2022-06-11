@@ -18,7 +18,8 @@ namespace HureIT.Shared.Core.Constants
         {
             public const string View = "Permissions.Employees.View";
             public const string ViewAll = "Permissions.Employees.ViewAll";
-            public const string Create = "Permissions.Employees.Create";
+            public const string ViewList = "Permissions.Employees.ViewList";
+            public const string Register = "Permissions.Employees.Register";
             public const string Update = "Permissions.Employees.Update";
             public const string Remove = "Permissions.Employees.Remove";
             public const string Export = "Permissions.Employees.Export";
@@ -42,7 +43,7 @@ namespace HureIT.Shared.Core.Constants
         {
             public const string View = "Permissions.WorkPermits.View";
             public const string ViewAll = "Permissions.WorkPermits.ViewAll";
-            public const string Create = "Permissions.WorkPermits.Create";
+            public const string Assign = "Permissions.WorkPermits.Assign";
             public const string Update = "Permissions.WorkPermits.Update";
             public const string Remove = "Permissions.WorkPermits.Remove";
             public const string Export = "Permissions.WorkPermits.Export";
