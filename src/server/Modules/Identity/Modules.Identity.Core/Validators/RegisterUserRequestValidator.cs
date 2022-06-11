@@ -24,7 +24,7 @@ namespace HureIT.Modules.Identity.Core.Validators
             RuleFor(x => x.Email).Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage(localizer["{PropertyName} must not be empty."])
                 .EmailAddress().WithMessage(localizer["{PropertyName} must be a valid email accounts."])
-                .MustAsync(async (email, _) => !await userService.ExistsWithEmailAsync(email))
+                .MustAsync(async (email, _) => !await userService.IsEmailUniqueAsync(email))
                     .WithMessage((_, email) => string.Format(localizer["Email {0} is already registered."], email));
 
             RuleFor(x => x.UserName).Cascade(CascadeMode.Stop)
@@ -46,6 +46,15 @@ namespace HureIT.Modules.Identity.Core.Validators
                 .NotEqual(x => x.FirstName).WithMessage(localizer["{PropertyName} cannot be equal to FirstName."])
                 .MustAsync(async (lastname, _) => await validatorService.IsOnlyLetterAndSpace(lastname))
                     .WithMessage(localizer["{PropertyName} should be all letters."]);
+
+            RuleFor(x => x.PhoneNumber).Cascade(CascadeMode.Stop)
+               .NotEmpty().WithMessage(localizer["{PropertyName} must not be empty."])
+               .Length(8, 16).WithMessage(localizer["{PropertyName} must have between 8 and  16 characters."])
+               .MustAsync(async (phone, _) => await validatorService.IsOnlyNumber(phone))
+                    .WithMessage(localizer["{PropertyName} should be all numbers."])
+               .MustAsync(async (phone, _) => !await userService.ExistsWithPhoneNumberAsync(phone!))
+                   .WithMessage((_, phone) => string.Format(localizer["Phone number {0} is already registered."], phone))
+                   .Unless(u => string.IsNullOrWhiteSpace(u.PhoneNumber));
 
             RuleFor(x => x.Password).Cascade(CascadeMode.Stop)
                 .NotEmpty().WithMessage(localizer["{PropertyName} must not be empty."])
