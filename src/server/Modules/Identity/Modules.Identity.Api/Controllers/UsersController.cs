@@ -109,21 +109,6 @@ namespace HureIT.Modules.Identity.Api.Controllers
             return Ok(response);
         }
 
-        [HttpPost("user-picture/{userId}")]
-        [HavePermission(PermissionsConstant.Users.Edit)]
-        [SwaggerOperation(
-            Summary = "Update Image User.",
-            Description = "We get the image user updated. This can only be done by the registered user",
-            OperationId = "UpdateUserPictureAsync")]
-        [SwaggerResponse(200, "Return updated image user.")]
-        [SwaggerResponse(404, "User was not found.")]
-        [SwaggerResponse(500, "Identity Internal Server Error.")]
-        public async Task<IActionResult> UpdatePictureAsync(string userId, UpdateUserPictureRequest request)
-        {
-            var response = await _userService.UpdatePictureAsync(userId, request);
-            return Ok(response);
-        }
-
         [HttpGet("user-roles/{id}")]
         [HavePermission(PermissionsConstant.Users.View)]
         [SwaggerOperation(

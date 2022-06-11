@@ -25,7 +25,7 @@ namespace HureIT.Shared.Core.Constants
         public const string CurrentUserGuest = "Guest";
         public const string ClaimsIssuer = "LOCAL AUTHORITY";
         public const string HiddenValue = "*******";
-        public const string UserImageGhost = "Files\\Images\\Operator\\ghost.png";
+        public const string UserImageGhost = "Files\\Staff\\ghost.png";
         public const string PatternNumber = " ({0})";
         public const string AlphaNumeric = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     }

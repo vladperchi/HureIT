@@ -31,7 +31,6 @@ using HureIT.Shared.Core.Settings;
 using HureIT.Shared.Core.Wrapper;
 using HureIT.Shared.DTO.Identity.Users;
 using HureIT.Shared.DTO.Mails;
-using HureIT.Shared.DTO.Upload;
 using HureIT.Shared.Infrastructure.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.WebUtilities;
@@ -57,7 +56,6 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
         private readonly IExcelService _excelService;
         private readonly ILoggerService _eventLog;
         private readonly ICurrentUser _currentUser;
-        private readonly IUploadService _uploadService;
 
         public UserService(
             UserManager<HureUser> userManager,
@@ -72,8 +70,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             ITemplateMailService templateService,
             IExcelService excelService,
             ILoggerService eventLog,
-            ICurrentUser currentUser,
-            IUploadService uploadService)
+            ICurrentUser currentUser)
         {
             _userManager = userManager;
             _mapper = mapper;
@@ -88,7 +85,6 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             _excelService = excelService;
             _eventLog = eventLog;
             _currentUser = currentUser;
-            _uploadService = uploadService;
         }
 
         public async Task<Result<List<UserResponse>>> GetAllAsync()
@@ -165,7 +161,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
 
             if (!string.IsNullOrWhiteSpace(request.Email))
             {
-                if (await ExistsWithEmailAsync(request.Email))
+                if (await IsEmailUniqueAsync(request.Email))
                 {
                     throw new IdentityException(string.Format(_localizer["Account Email {0} is registered."], request.Email));
                 }
@@ -259,41 +255,6 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             {
                 await Result<string>.FailAsync(result.GetErrorMessages(_localizer));
                 throw new IdentityException(_localizer["An error occurred while updating a user"], result.GetErrorMessages(_localizer));
-            }
-        }
-
-        public async Task<IResult<string>> UpdatePictureAsync(string userId, UpdateUserPictureRequest request)
-        {
-            var user = await _userManager.FindByIdAsync(userId);
-            _ = user ?? throw new UserNotFoundException(_localizer, userId);
-            string currentImageUrl = user.ImageUrl ?? string.Empty;
-            if (request?.DeleteCurrentImageUrl == true)
-            {
-                await _uploadService.RemoveFileImage(UploadStorageType.Staff, currentImageUrl);
-                user = user.ClearPathImageUrl();
-                var fileUploadRequest = new FileUploadRequest
-                {
-                    Data = request?.Data,
-                    Extension = Path.GetExtension(request.FileName).ToLower(),
-                    UploadStorageType = UploadStorageType.Staff
-                };
-                string fileName = await GenerateFileName(20);
-                fileUploadRequest.FileName = fileName + fileUploadRequest.Extension;
-                user.ImageUrl = await _uploadService.UploadAsync(fileUploadRequest, FileType.Image);
-            }
-
-            string filePath = user.ImageUrl;
-            user.AddDomainEvent(new UserPictureUpdateEvent(user));
-            var result = await _userManager.UpdateAsync(user);
-            if (result.Succeeded)
-            {
-                _logger.LogInformation(string.Format(_localizer["Updated picture user file:"], filePath));
-                return await Result<string>.SuccessAsync(data: filePath);
-            }
-            else
-            {
-                await Result<string>.FailAsync(result.GetErrorMessages(_localizer));
-                throw new IdentityException(_localizer["Update user picture failed"], result.GetErrorMessages(_localizer));
             }
         }
 
@@ -476,6 +437,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             }
             else
             {
+                await Result<string>.FailAsync(result.GetErrorMessages(_localizer));
                 throw new IdentityException(_localizer["An error occurred while deleting a user"], result.GetErrorMessages(_localizer));
             }
         }
@@ -499,13 +461,10 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             return QueryHelpers.AddQueryString(endpointUri.ToString(), StringKeys.Token, code);
         }
 
-        private async Task<string> GenerateFileName(int length) =>
-            await Utilities.GenerateCode("S", length);
-
         public async Task<bool> ExistsWithNameAsync(string name) =>
             await _userManager.FindByNameAsync(name) is not null;
 
-        public async Task<bool> ExistsWithEmailAsync(string email, string exceptId = null) =>
+        public async Task<bool> IsEmailUniqueAsync(string email, string exceptId = null) =>
             await _userManager.FindByEmailAsync(email.Trim().Normalize()) is HureUser user && user.Id != exceptId;
 
         public async Task<bool> ExistsWithPhoneNumberAsync(string phoneNumber, string exceptId = null) =>
