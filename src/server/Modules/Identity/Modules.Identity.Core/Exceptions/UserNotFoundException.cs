@@ -17,7 +17,7 @@ namespace HureIT.Modules.Identity.Core.Exceptions
         public string User { get; }
 
         public UserNotFoundException(IStringLocalizer localizer, string user)
-            : base(localizer[$"User: {user} was not found..."], null, HttpStatusCode.NotFound)
+            : base(localizer[$"User: {user} was not found."], null, HttpStatusCode.NotFound)
         {
             User = user;
         }
