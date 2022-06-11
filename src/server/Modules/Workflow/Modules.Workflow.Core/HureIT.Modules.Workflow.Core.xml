@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HureIT.Modules.Workflow.Core</name>
+    </assembly>
+    <members>
+        <member name="M:HureIT.Modules.Workflow.Core.Features.Employees.Queries.Validators.PaginatedEmployeeFilterValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer{HureIT.Modules.Workflow.Core.Features.Employees.Queries.Validators.PaginatedEmployeeFilterValidator})">
+            <summary>
+            You can override the validation rules here.
+            </summary>
+        </member>
+        <member name="M:HureIT.Modules.Workflow.Core.Features.Permits.Queries.Validators.PaginatedPermitFilterValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer{HureIT.Modules.Workflow.Core.Features.Permits.Queries.Validators.PaginatedPermitFilterValidator})">
+            <summary>
+            You can override the validation rules here.
+            </summary>
+        </member>
+        <member name="M:HureIT.Modules.Workflow.Core.Features.PermitTypes.Queries.Validators.PaginatedPermitTypeFilterValidator.#ctor(Microsoft.Extensions.Localization.IStringLocalizer{HureIT.Modules.Workflow.Core.Features.PermitTypes.Queries.Validators.PaginatedPermitTypeFilterValidator})">
+            <summary>
+            You can override the validation rules here.
+            </summary>
+        </member>
+    </members>
+</doc>
