@@ -181,7 +181,8 @@ namespace HureIT.Shared.Infrastructure.Middlewares
                 eBody.Seek(0, SeekOrigin.Begin);
                 await eBody.CopyToAsync(originalBody);
 
-                _logger.LogError($"{errorResult.Exception}:::Request failed with StatusCode:{response.StatusCode}::: {errorResult.SupportMessage}");
+                string errorMessages = errorResult.Messages != null ? string.Join(" && ", errorResult.Messages) : string.Empty;
+                _logger.LogError($"{errorResult.Exception}:::Request failed {errorMessages} with StatusCode:{response.StatusCode}::: {errorResult.SupportMessage}");
                 await response.WriteAsync(result);
             }
         }
