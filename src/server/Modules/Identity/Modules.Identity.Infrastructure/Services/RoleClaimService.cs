@@ -24,6 +24,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+
+using static HureIT.Shared.Core.Constants.PermissionsConstant;
 
 namespace HureIT.Modules.Identity.Infrastructure.Services
 {
@@ -32,6 +35,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
         private readonly RoleManager<HureRole> _roleManager;
         private readonly UserManager<HureUser> _userManager;
         private readonly ICurrentUser _currentUser;
+        private readonly ILogger<RoleClaimService> _logger;
         private readonly IStringLocalizer<RoleClaimService> _localizer;
         private readonly IMapper _mapper;
         private readonly IIdentityDbContext _context;
@@ -40,6 +44,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             RoleManager<HureRole> roleManager,
             UserManager<HureUser> userManager,
             ICurrentUser currentUserService,
+            ILogger<RoleClaimService> logger,
             IStringLocalizer<RoleClaimService> localizer,
             IMapper mapper,
             IIdentityDbContext context)
@@ -47,6 +52,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             _roleManager = roleManager;
             _userManager = userManager;
             _currentUser = currentUserService;
+            _logger = logger;
             _localizer = localizer;
             _mapper = mapper;
             _context = context;
@@ -62,7 +68,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
 
         public async Task<Result<RoleClaimResponse>> GetByIdAsync(int id)
         {
-            var data = await _context.RoleClaims.AsNoTracking().SingleOrDefaultAsync(x => x.Id == id);
+            var data = await _context.RoleClaims.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id);
             _ = data ?? throw new RoleClaimNotFoundException(_localizer, id);
             var result = _mapper.Map<RoleClaimResponse>(data);
             return await Result<RoleClaimResponse>.SuccessAsync(result);
@@ -151,6 +157,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
             }
             else
             {
+                _logger.LogInformation(string.Format(_localizer["Role Claim with Id: {0} was not found."], id));
                 return await Result<string>.FailAsync(_localizer["Role Claim does not exist."]);
             }
         }
