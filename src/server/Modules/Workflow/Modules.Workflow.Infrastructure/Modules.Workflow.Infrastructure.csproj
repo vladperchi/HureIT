@@ -1,7 +1,56 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>HureIT.Modules.Workflow.Infrastructure</RootNamespace>
+        <AssemblyName>HureIT.Modules.Workflow.Infrastructure</AssemblyName>
+        <CodeAnalysisRuleSet />
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DocumentationFile>HureIT.Modules.Workflow.Infrastructure.xml</DocumentationFile>
+        <CodeAnalysisRuleSet>..\..\..\..\..\HureIT.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <DocumentationFile>HureIT.Modules.Workflow.Infrastructure.xml</DocumentationFile>
+        <CodeAnalysisRuleSet>..\..\..\..\..\HureIT.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Roslynator.Analyzers" Version="4.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+   <AdditionalFiles Include="..\..\..\..\..\stylecop.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Shared\Shared.Infrastructure\Shared.Infrastructure.csproj" />
+    <ProjectReference Include="..\Modules.Workflow.Core\Modules.Workflow.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DocFileItem Remove="HureIT.Modules.Workflow.Infrastructure.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Persistence\Resources\Seeds.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Seeds.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Persistence\Resources\Seeds.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Seeds.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
 
 </Project>
