@@ -3,5 +3,1170 @@
         "_postman_id": "14b37c25-58d4-4dd0-b7a0-84f68d998bab",
         "name": "HTTP HureIT Requests Collection",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-    }
+    },
+    "item": [{
+            "name": "Identity",
+            "item": [{
+                    "name": "Tokens",
+                    "item": [{
+                            "name": "get-token",
+                            "event": [{
+                                "listen": "test",
+                                "script": {
+                                    "exec": [
+                                        "var jsonData = pm.response.json();\r",
+                                        "pm.collectionVariables.set(\"token\", jsonData.token);"
+                                    ],
+                                    "type": "text/javascript"
+                                }
+                            }],
+                            "request": {
+                                "auth": {
+                                    "type": "noauth"
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"email\": \"{{email_user}}\",\r\n   \"password\": \"{{password_user}}\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/tokens",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "tokens"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "refresh-token",
+                            "event": [{
+                                "listen": "test",
+                                "script": {
+                                    "exec": [
+                                        "var jsonData = pm.response.json();\r",
+                                        "pm.collectionVariables.set(\"token\", jsonData.token);"
+                                    ],
+                                    "type": "text/javascript"
+                                }
+                            }],
+                            "request": {
+                                "auth": {
+                                    "type": "noauth"
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"token\": \"\",\r\n   \"refreshToken\": \"\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/tokens/refresh",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "tokens", "refresh"]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Roles",
+                    "item": [{
+                            "name": "get-all-roles",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-id-role",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/e7385c07-2259-40a6-bc77-284f809afc21",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "roles",
+                                        "e7385c07-2259-40a6-bc77-284f809afc21"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "add-role",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"name\":\"Supervisor\",\r\n    \"description\":\"ROL SUPERVISOR\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/roles",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "update-role",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"id\": \"b3434353-f5c1-4932-b327-da0ac99b7a59\",\r\n    \"name\":\"Supervisor\",\r\n    \"description\":\"ROL SUPERVISOR\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/roles",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "delete-role",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/bc102093-2dc7-4e47-bc3a-da64e6a0ffa9",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "roles",
+                                        "bc102093-2dc7-4e47-bc3a-da64e6a0ffa9"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Permissions",
+                    "item": [{
+                            "name": "get-all-claims",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/permissions",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles", "permissions"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-id-claim",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/permissions/37",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles", "permissions", "37"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "update-claim",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n    \"roleId\": \"e510f0e0-2fec-4523-953c-c31770d7f876\",\r\n    \"roleClaims\": [\n   {\r\n    \"id\": 37,\r\n    \"roleId\": \"e510f0e0-2fec-4523-953c-c31770d7f876\",\r\n    \"type\": \"Permission\",\r\n    \"value\": \"Permissions.Hangfire.ViewAll\",\r\n    \"description\": \"HANGFIRE\",\r\n    \"group\": \"string\",\r\n   \"selected\": true\r\n   }\n  ]\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/permissions-update",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles", "permissions-update"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "delete-claim",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/permissions-delete/38",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "roles",
+                                        "permissions-delete",
+                                        "38"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-current-user-permissions",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "roles"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-permissions-byrole",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/roles/e7385c07-2259-40a6-bc77-284f809afc21",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "roles",
+                                        "e7385c07-2259-40a6-bc77-284f809afc21"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Users",
+                    "item": [{
+                            "name": "get-all-user",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/users",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "users"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-id-user",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/users/5391aaba-3257-46b2-a0f5-3569bef3acba",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "users",
+                                        "5391aaba-3257-46b2-a0f5-3569bef3acba"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-picture-user",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/users/user-picture/5391aaba-3257-46b2-a0f5-3569bef3acba",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "users",
+                                        "user-picture",
+                                        "5391aaba-3257-46b2-a0f5-3569bef3acba"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "register-user",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"firstName\": \"Testing\",\r\n   \"lastName\": \"User\",\r\n   \"email\": \"testinguser@hureit.com\",\r\n   \"emailConfirmed\": true,\r\n   \"userName\": \"testing.user\",\r\n   \"password\": \"@BasicP4$$w0rd#\",\r\n   \"confirmPassword\": \"@BasicP4$$w0rd#\",\r\n   \"phoneNumber\": \"0012134858927\",\r\n   \"phoneNumberConfirmed\": true\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/users/register",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "users", "register"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "update-user",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"id\": \"7ce402d5-4c9f-41c6-a942-d58f5d0c2f15\",\r\n   \"firstName\":\"David\",\r\n   \"lastName\":\"Vanegas\",\r\n   \"email\":\"davidvanegas@hureit.com\",\r\n   \"phoneNumber\":\"0012934898193\",\r\n   \"currentPassword\":\"@BasicP4$$w0rd#\",\r\n   \"password\":\"@B4s1cP4ssw0rd#\",\r\n   \"confirmPassword\":\"@B4s1cP4ssw0rd#\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/users",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "users"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "delete-user",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/identity/users/bc102093-2dc7-4e47-bc3a-da64e6a0ffa9",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "identity",
+                                        "users",
+                                        "bc102093-2dc7-4e47-bc3a-da64e6a0ffa9"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "forgot-password",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n  \"email\":\"{{email_user}}\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/users/forgot-password",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "users", "forgot-password"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "reset-password",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n  \"email\":\"{{email_user}}\",\r\n  \"password\":\"{{password_reset}}\",\r\n  \"token\": \"\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/users/reset-password",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "users", "reset-password"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "change-password",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"currentPassword\":\"\",\r\n   \"newPassword\":\"{{password_change}}\",\r\n   \"confirmPassword\": \"{{password_change}}\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/identity/users/change-password",
+                                    "host": ["{{url}}"],
+                                    "path": ["identity", "users", "change-password"]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Event-Logs",
+                    "item": [{
+                        "name": "get-current-user-logs",
+                        "request": {
+                            "auth": {
+                                "type": "bearer",
+                                "bearer": [{
+                                    "key": "token",
+                                    "value": "{{token}}",
+                                    "type": "string"
+                                }]
+                            },
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                                "raw": "{{url}}/identity/logger",
+                                "host": ["{{url}}"],
+                                "path": ["identity", "logger"]
+                            }
+                        },
+                        "response": []
+                    }]
+                }
+            ]
+        },
+        {
+            "name": "Workflow",
+            "item": [{
+                    "name": "Employees",
+                    "item": [{
+                            "name": "get-all",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "employees"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-id",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees/0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "employees",
+                                        "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-number-permits",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees/number-permits",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "employees", "number-permits"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-picture",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees/picture/0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "employees",
+                                        "picture",
+                                        "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "register",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"firstName\": \"Vladofky\",\r\n   \"lastName\": \"Putin Bruzka\",\r\n   \"PhoneNumber\": \"0012134852130\",\r\n   \"Birthday\": \"1996-03-16T17:45:06.782Z\",\r\n   \"gender\": \"Male\",\r\n   \"email\": \"vladofkyputin@gmail.com\",\r\n   \"imageurl\": \"\",\r\n   \"isactive\": true\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "employees"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"id\": \"4FFCF2CC-9229-47B8-8F21-6654CDA47E2A\",\r\n   \"firstName\": \"Alyshia\",\r\n   \"lastName\": \"Forrestier Winter\",\r\n   \"PhoneNumber\": \"0012134852131\",\r\n   \"Birthday\": \"1993-05-26T18:18:06.782Z\",\r\n   \"gender\": \"Female\",\r\n   \"isactive\": true\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "employees"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "delete",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/employees/69D3F1C8-0317-4332-9656-5F363960E210",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "employees",
+                                        "69D3F1C8-0317-4332-9656-5F363960E210"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "PermitTypes",
+                    "item": [{
+                            "name": "get-all",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/permittypes",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "permittypes"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-id",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/permittypes/69D3F1C8-0317-4332-9656-5F363960E210",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "permittypes",
+                                        "69D3F1C8-0317-4332-9656-5F363960E210"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "register",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"name\": \"Funciones Sindicales\",\r\n   \"codeinternal\": \"PFS008\",\r\n   \"description\": \"Empleado que solicita el permiso debe ser representante de los trabajadores, bien como miembro del comité de empresa, delegado de personal, prevención o forme parte de un puesto sindical, tendrá derecho a un permiso retribuido. El número de horas depende del número de trabajadores que tenga la empresa. Así puede ir desde las 20 horas con 100 trabajadores, hasta las 40 horas en una organización de más de 750 empleados. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.\",\r\n   \"isenabled\": true\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/workflow/permittypes",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "permittypes"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"id\": \"16E5767E-F9D5-410B-B4AD-C9776E8712F2\",\r\n   \"name\": \"Obligaciones Públicas\",\r\n   \"codeinternal\": \"POP006\",\r\n   \"description\": \"Permiso relacionado con situaciones concretas e ineludibles y, por lo tanto, la duración del permiso dependerá de cada caso. Por ejemplo, ausentarse para ejercer el derecho al voto, presentarse a una citación judicial, renovar el DNI, ser requerido como jurado popular o como miembro en una mesa electoral. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.\",\r\n   \"isenabled\": true\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/workflow/permittypes",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "permittypes"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "delete",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/permittypes/16E5767E-F9D5-410B-B4AD-C9776E8712F2",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "permittypes",
+                                        "16E5767E-F9D5-410B-B4AD-C9776E8712F2"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Permits",
+                    "item": [{
+                            "name": "get-all",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/permits",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "permits"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "get-id",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "GET",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/permits/0021CE10-1203-4459-A685-9F8698DA19CE",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "permits",
+                                        "0021CE10-1203-4459-A685-9F8698DA19CE"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "register",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "POST",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"employeeid\": \"8B7CECC3-E157-419A-AA14-99D5A3C934A0\",\r\n   \"permittypeid\": \"F4E25DF1-82C4-4685-91AC-7305F6EB9ADD\",\r\n   \"startdatepermit\": \"2018-05-02T08:00:00.782Z\",\r\n   \"enddatepermit\": \"2018-05-04T08:00:00.782Z\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/workflow/permits",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "permits"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "update",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "PUT",
+                                "header": [],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\r\n   \"id\": \"D0C11FF5-02AB-440A-966C-6AA5EDA9B2BB\",\r\n   \"employeeid\": \"0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7\",\r\n   \"permittypeid\": \"3CCA2E47-C344-4E6D-98C2-57FE35FC0F35\",\r\n   \"startdatepermit\": \"2020-10-14T08:00:00.782Z\",\r\n   \"enddatepermit\": \"2020-10-17T08:00:00.782Z\"\r\n}",
+                                    "options": {
+                                        "raw": {
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "url": {
+                                    "raw": "{{url}}/workflow/permits",
+                                    "host": ["{{url}}"],
+                                    "path": ["workflow", "permits"]
+                                }
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "delete",
+                            "request": {
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [{
+                                        "key": "token",
+                                        "value": "{{token}}",
+                                        "type": "string"
+                                    }]
+                                },
+                                "method": "DELETE",
+                                "header": [],
+                                "url": {
+                                    "raw": "{{url}}/workflow/permits/081eafab-248b-42fb-b06f-509c1eb279fd",
+                                    "host": ["{{url}}"],
+                                    "path": [
+                                        "workflow",
+                                        "permits",
+                                        "081eafab-248b-42fb-b06f-509c1eb279fd"
+                                    ]
+                                }
+                            },
+                            "response": []
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Summary",
+            "item": [{
+                "name": "dashboard",
+                "request": {
+                    "auth": {
+                        "type": "bearer",
+                        "bearer": [{
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "{{url}}/dashboard",
+                        "host": ["{{url}}"],
+                        "path": ["dashboard"]
+                    }
+                },
+                "response": []
+            }]
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": [{
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+        }]
+    },
+    "event": [{
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [{
+            "key": "url",
+            "value": "https://localhost:5001/api/v1"
+        },
+        {
+            "key": "token",
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjJlMDUxYWRiLTgyYzctNGEwMy05OTExLTI3NWQ4MmM1NjU1MSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InZsYWRwZXJjaGlAaHVyZWl0LmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDA1NzMwNDM2MDA1MTIiLCJGdWxsTmFtZSI6IlZsYWRwZXJjaGkgV29uIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlZsYWRwZXJjaGkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiV29uIiwiSXBBZGRyZXNzIjoiMC4wLjAuMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmF0b3IiLCJQZXJtaXNzaW9uIjpbIlBlcm1pc3Npb25zLkVtcGxveWVlcy5WaWV3IiwiUGVybWlzc2lvbnMuRW1wbG95ZWVzLlZpZXdBbGwiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuVmlld0xpc3QiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuUmVnaXN0ZXIiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuVXBkYXRlIiwiUGVybWlzc2lvbnMuRW1wbG95ZWVzLlJlbW92ZSIsIlBlcm1pc3Npb25zLkVtcGxveWVlcy5FeHBvcnQiLCJQZXJtaXNzaW9ucy5QZXJtaXRUeXBlcy5WaWV3IiwiUGVybWlzc2lvbnMuUGVybWl0VHlwZXMuVmlld0FsbCIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLkNyZWF0ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLlVwZGF0ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLlJlbW92ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLkV4cG9ydCIsIlBlcm1pc3Npb25zLldvcmtQZXJtaXRzLlZpZXciLCJQZXJtaXNzaW9ucy5Xb3JrUGVybWl0cy5WaWV3QWxsIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuQXNzaWduIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuVXBkYXRlIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuUmVtb3ZlIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuRXhwb3J0IiwiUGVybWlzc2lvbnMuVXNlcnMuVmlldyIsIlBlcm1pc3Npb25zLlVzZXJzLlZpZXdBbGwiLCJQZXJtaXNzaW9ucy5Vc2Vycy5SZWdpc3RlciIsIlBlcm1pc3Npb25zLlVzZXJzLkVkaXQiLCJQZXJtaXNzaW9ucy5Vc2Vycy5EZWxldGUiLCJQZXJtaXNzaW9ucy5Vc2Vycy5FeHBvcnQiLCJQZXJtaXNzaW9ucy5Sb2xlcy5WaWV3IiwiUGVybWlzc2lvbnMuUm9sZXMuVmlld0FsbCIsIlBlcm1pc3Npb25zLlJvbGVzLkFkZE9yVXBkYXRlIiwiUGVybWlzc2lvbnMuUm9sZXMuRGVsZXRlIiwiUGVybWlzc2lvbnMuUm9sZUNsYWltcy5WaWV3IiwiUGVybWlzc2lvbnMuUm9sZUNsYWltcy5DcmVhdGUiLCJQZXJtaXNzaW9ucy5Sb2xlQ2xhaW1zLkVkaXQiLCJQZXJtaXNzaW9ucy5Sb2xlQ2xhaW1zLkRlbGV0ZSIsIlBlcm1pc3Npb25zLkxvZ3MuVmlld0FsbCIsIlBlcm1pc3Npb25zLkxvZ3MuQ3JlYXRlIiwiUGVybWlzc2lvbnMuRGFzaGJvYXJkcy5WaWV3IiwiUGVybWlzc2lvbnMuSGFuZ2ZpcmUuVmlld0FsbCJdLCJleHAiOjE2NTQ4NDg4MTV9.o6_JffOw9OO_A2JWsFzjwN2Gfk7I49hk334iwCfzTHc"
+        },
+        {
+            "key": "email_user",
+            "value": "vladperchi@hureit.com"
+        },
+        {
+            "key": "password_user",
+            "value": "@4dm1nP4$$w0rd#"
+        },
+        {
+            "key": "password_reset",
+            "value": "@4dm1nP4$$w0rd#"
+        },
+        {
+            "key": "password_change",
+            "value": "@4dm1nP4$$w0rd#"
+        }
+    ]
 }
