@@ -23,9 +23,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using FluentValidation.AspNetCore;
 using HureIT.Shared.Core.Constants;
-using ElevatorIT.Shared.Infrastructure.Services;
+using HureIT.Shared.Infrastructure.Services;
 using HureIT.Shared.Core.Interfaces.Services;
-using HureIT.Shared.Core.Interfaces.Persistence;
 
 [assembly: InternalsVisibleTo(StringKeys.AssemblyName)]
 
