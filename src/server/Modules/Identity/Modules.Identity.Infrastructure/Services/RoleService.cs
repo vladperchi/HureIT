@@ -22,6 +22,7 @@ using HureIT.Shared.Infrastructure.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
 
 namespace HureIT.Modules.Identity.Infrastructure.Services
 {
@@ -79,7 +80,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
                 await _context.SaveChangesAsync();
                 if (result.Succeeded)
                 {
-                    return await Result<string>.SuccessAsync(newRole.Id, string.Format(_localizer["Role {0} Created."], request.Name));
+                    return await Result<string>.SuccessAsync(newRole.Id, string.Format(_localizer["Role {0} Added."], request.Name));
                 }
                 else
                 {
@@ -102,7 +103,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Services
                 existingRole.AddDomainEvent(new RoleUpdatedEvent(existingRole));
                 var result = await _roleManager.UpdateAsync(existingRole);
                 if (result.Succeeded)
-                {
+{
                     return await Result<string>.SuccessAsync(existingRole.Id, string.Format(_localizer["Role {0} Updated."], existingRole.Name));
                 }
                 else

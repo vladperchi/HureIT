@@ -96,22 +96,6 @@ namespace HureIT.Modules.Identity.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet("permissions/byrole/{roleId}")]
-        [HavePermission(PermissionsConstant.RoleClaims.View)]
-        [SwaggerOperation(
-            Summary = "Get Permission List By Rol Id.",
-            Description = "We get the permission list by rol id. This can only be done by the registered user",
-            OperationId = "GetPermissionsByRoleIdAsync")]
-        [SwaggerResponse(200, "Return permission list by rol id.")]
-        [SwaggerResponse(404, "Rol was not found.")]
-        [SwaggerResponse(401, "No authorization to access.")]
-        [SwaggerResponse(403, "No permission to access.")]
-        public async Task<IActionResult> GetPermissionsByRoleIdAsync([FromRoute] string roleId)
-        {
-            var response = await _roleClaimService.GetAllPermissionsAsync(roleId);
-            return Ok(response);
-        }
-
         [HttpGet("permissions")]
         [HavePermission(PermissionsConstant.RoleClaims.View)]
         [SwaggerOperation(
@@ -144,7 +128,7 @@ namespace HureIT.Modules.Identity.Api.Controllers
             return Ok(response);
         }
 
-        [HttpPut("permissions/update")]
+        [HttpPut("permissions-update")]
         [HavePermission(PermissionsConstant.RoleClaims.Edit)]
         [SwaggerOperation(
             Summary = "Get Updated Role Claim.",
@@ -161,7 +145,7 @@ namespace HureIT.Modules.Identity.Api.Controllers
             return Ok(response);
         }
 
-        [HttpDelete("permissions/{id}")]
+        [HttpDelete("permissions-delete/{id}")]
         [HavePermission(PermissionsConstant.RoleClaims.Delete)]
         [SwaggerOperation(
             Summary = "Deleted Role Claims By Id.",
@@ -175,6 +159,22 @@ namespace HureIT.Modules.Identity.Api.Controllers
         public async Task<IActionResult> DeleteClaimByIdAsync([FromRoute] int id)
         {
             var response = await _roleClaimService.DeleteAsync(id);
+            return Ok(response);
+        }
+
+        [HttpGet("permissions/byrole/{roleId}")]
+        [HavePermission(PermissionsConstant.RoleClaims.View)]
+        [SwaggerOperation(
+            Summary = "Get Permission List By Rol Id.",
+            Description = "We get the permission list by rol id. This can only be done by the registered user",
+            OperationId = "GetPermissionsByRoleIdAsync")]
+        [SwaggerResponse(200, "Return permission list by rol id.")]
+        [SwaggerResponse(404, "Rol was not found.")]
+        [SwaggerResponse(401, "No authorization to access.")]
+        [SwaggerResponse(403, "No permission to access.")]
+        public async Task<IActionResult> GetPermissionsByRoleIdAsync([FromRoute] string roleId)
+        {
+            var response = await _roleClaimService.GetAllPermissionsAsync(roleId);
             return Ok(response);
         }
     }
