@@ -10,5 +10,5 @@ using System;
 
 namespace HureIT.Shared.DTO.Workflow.Employees
 {
-    public record GetAllEmployeesResponse(Guid Id, string FirstName, string LastName, string Surnames, string PhoneNumber, DateTime Birthday, string Gender, string Email, DateTime AdmissionDate, string ImageUrl);
+    public record GetAllEmployeesResponse(Guid Id, string FullName, string Admission, bool IsActive);
 }
