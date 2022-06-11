@@ -22,8 +22,5 @@
         <member name="T:HureIT.Shared.Infrastructure.Services.SmtpMailService">
             <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.IMailService" />
         </member>
-        <member name="T:HureIT.Shared.Infrastructure.Services.UploadService">
-            <inheritdoc cref = "T:HureIT.Shared.Core.Interfaces.Services.IUploadService" />
-        </member>
     </members>
 </doc>
