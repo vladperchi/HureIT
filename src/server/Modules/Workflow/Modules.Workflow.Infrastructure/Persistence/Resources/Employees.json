@@ -1,0 +1,74 @@
+[
+  {
+    "Id": "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+    "FirstName": "Oliver",
+    "LastName": "Bramsond",
+    "Email": "oliverbramson@gmail.com",
+    "PhoneNumber": "0012134852122",
+    "Birthday": "1991-10-30T23:28:56.782Z",
+    "Gender": "Male",
+    "IsActive": true,
+    "ImageUrl": "Files\\Staff\\ghost.png",
+    "AdmissionDate": "2018-03-20T09:28:56.782Z"
+  },
+  {
+    "Id": "6449C449-59DA-4C60-9AB2-1B9949024C86",
+    "FirstName": "Aaliyah",
+    "LastName": "Millery",
+    "Email": "braxtonmiller@gmail.com",
+    "PhoneNumber": "0012134852123",
+    "Birthday": "1993-02-18T03:20:16.002Z",
+    "Gender": "Female",
+    "IsActive": true,
+    "ImageUrl": "Files\\Staff\\ghost.png",
+    "AdmissionDate": "2015-06-10T08:28:56.782Z"
+  },
+  {
+    "Id": "8B7CECC3-E157-419A-AA14-99D5A3C934A0",
+    "FirstName": "Hamilton",
+    "LastName": "Jhonson",
+    "Email": "hamiltonjhonson@gmail.com",
+    "PhoneNumber": "0012134852124",
+    "Birthday": "1999-11-24T13:45:00.000Z",
+    "Gender": "Male",
+    "IsActive": true,
+    "ImageUrl": "Files\\Staff\\ghost.png",
+    "AdmissionDate": "2014-02-20T10:28:56.782Z"
+  },
+  {
+    "Id": "A0FEA333-5986-42F8-8B3D-2EF65D85F1B8",
+    "FirstName": "Aaron",
+    "LastName": "Devancur",
+    "Email": "aarondevancur@gmail.com",
+    "PhoneNumber": "0012134852125",
+    "Birthday": "1990-10-26T13:45:00.000Z",
+    "Gender": "Male",
+    "IsActive": true,
+    "ImageUrl": "Files\\Staff\\ghost.png",
+    "AdmissionDate": "2017-09-10T09:28:56.782Z"
+  },
+  {
+    "Id": "4FFCF2CC-9229-47B8-8F21-6654CDA47E2A",
+    "FirstName": "Alisha",
+    "LastName": "Forestter",
+    "Email": "alishaforestter@gmail.com",
+    "PhoneNumber": "0012134852126",
+    "Birthday": "1996-06-23T13:45:00.000Z",
+    "Gender": "Female",
+    "IsActive": false,
+    "ImageUrl": "Files\\Staff\\ghost.png",
+    "AdmissionDate": "2013-05-20T08:28:56.782Z"
+  },
+  {
+    "Id": "69D3F1C8-0317-4332-9656-5F363960E210",
+    "FirstName": "Dimitri",
+    "LastName": "Vlarizkova",
+    "Email": "dimitrivlarizkova@gmail.com",
+    "PhoneNumber": "0012134852127",
+    "Birthday": "1995-03-12T10:15:00.000Z",
+    "Gender": "Male",
+    "IsActive": false,
+    "ImageUrl": "Files\\Staff\\ghost.png",
+    "AdmissionDate": "2011-07-10T10:08:00.782Z"
+  }
+]

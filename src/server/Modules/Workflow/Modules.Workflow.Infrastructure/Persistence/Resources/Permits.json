@@ -1,0 +1,59 @@
+[
+  {
+    "Id": "0021CE10-1203-4459-A685-9F8698DA19CE",
+    "EmployeeId": "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+    "PermitTypeId": "69D3F1C8-0317-4332-9656-5F363960E210",
+    "StartDatePermit": "2019-04-10T09:00:00.782Z",
+    "EndDatePermit": "2019-04-10T14:00:00.782Z"
+  },
+  {
+    "Id": "4FFCF2CC-9229-47B8-8F21-6654CDA47E2A",
+    "EmployeeId": "6449C449-59DA-4C60-9AB2-1B9949024C86",
+    "PermitTypeId": "69D3F1C8-0317-4332-9656-5F363960E210",
+    "StartDatePermit": "2016-03-15T09:00:00.782Z",
+    "EndDatePermit": "2016-03-15T14:00:00.782Z"
+  },
+  {
+    "Id": "3d94ccf0-a433-45f5-a8cd-e681ff2c0a0b",
+    "EmployeeId": "8B7CECC3-E157-419A-AA14-99D5A3C934A0",
+    "PermitTypeId": "69D3F1C8-0317-4332-9656-5F363960E210",
+    "StartDatePermit": "2014-08-21T09:00:00.782Z",
+    "EndDatePermit": "2014-08-21T14:00:00.782Z"
+  },
+  {
+    "Id": "0bd317ca-afa6-4077-9493-791834e705dc",
+    "EmployeeId": "8B7CECC3-E157-419A-AA14-99D5A3C934A0",
+    "PermitTypeId": "69D3F1C8-0317-4332-9656-5F363960E210",
+    "StartDatePermit": "2018-05-03T09:00:00.782Z",
+    "EndDatePermit": "2018-05-03T14:00:00.782Z"
+  },
+  {
+    "Id": "5fc39f81-5c56-4ab5-b2dd-bebb6e1512d8",
+    "EmployeeId": "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+    "PermitTypeId": "C82043A7-1C2A-46B7-A0BF-82CD04674EB2",
+    "StartDatePermit": "2020-10-10T08:00:00.782Z",
+    "EndDatePermit": "2020-10-15T08:00:00.782Z"
+  },
+  {
+    "Id": "340e9f0c-8be2-4ab8-9265-afcdf6e835a0",
+    "EmployeeId": "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+    "PermitTypeId": "C82043A7-1C2A-46B7-A0BF-82CD04674EB2",
+    "StartDatePermit": "2021-07-20T08:00:00.782Z",
+    "EndDatePermit": "2021-07-25T08:00:00.782Z"
+  },
+  {
+    "Id": "D0C11FF5-02AB-440A-966C-6AA5EDA9B2BB",
+    "EmployeeId": "8B7CECC3-E157-419A-AA14-99D5A3C934A0",
+    "PermitTypeId": "4F426DDE-E40C-4819-97B5-AEF5F94A5D53",
+    "StartDatePermit": "2017-11-20T08:30:00.782Z",
+    "EndDatePermit": "2017-11-21T08:30:00.782Z"
+  },
+
+  {
+    "Id": "081eafab-248b-42fb-b06f-509c1eb279fd",
+    "EmployeeId": "6449C449-59DA-4C60-9AB2-1B9949024C86",
+    "PermitTypeId": "16E5767E-F9D5-410B-B4AD-C9776E8712F2",
+    "StartDatePermit": "2018-03-15T09:00:00.782Z",
+    "EndDatePermit": "2018-03-30T09:00:00.782Z"
+  }
+]

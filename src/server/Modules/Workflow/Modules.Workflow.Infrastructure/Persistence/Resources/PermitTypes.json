@@ -1,0 +1,51 @@
+[
+  {
+    "Id": "69D3F1C8-0317-4332-9656-5F363960E210",
+    "CodeInternal": "PCM001",
+    "Name": "Cita Médica",
+    "Description": "Permiso remunerado de 5 horas maxímo para el trabajador con una cita médica. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 3 días.",
+    "IsEnabled": true
+  },
+  {
+    "Id": "2E191A01-5623-4C92-B9DF-811955F990E8",
+    "CodeInternal": "PMA002",
+    "Name": "Matrimonio",
+    "Description": "Permiso remunerado de 10 días naturales para el trabajador que formalice un matrimonio. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.",
+    "IsEnabled": true
+  },
+  {
+    "Id": "3CCA2E47-C344-4E6D-98C2-57FE35FC0F35",
+    "CodeInternal": "PEG003",
+    "Name": "Enfermedad Grave Familiar",
+    "Description": "Permiso remunerado de 3 días naturales para el trabajador con un familiar de hasta segundo grado hospitalizado. Este permiso tiene que preavisarlo a la empresa lo más pronto posible.",
+    "IsEnabled": true
+  },
+  {
+    "Id": "C82043A7-1C2A-46B7-A0BF-82CD04674EB2",
+    "CodeInternal": "PFF004",
+    "Name": "Fallecimiento Familiar",
+    "Description": "Permiso remunerado de 5 días naturales para el trabajador que tenga una perdida familiar de hasta segundo grado. Este permiso tiene que preavisarlo a la empresa lo más pronto posible.",
+    "IsEnabled": true
+  },
+  {
+    "Id": "4F426DDE-E40C-4819-97B5-AEF5F94A5D53",
+    "CodeInternal": "PTM005",
+    "Name": "Traslado o Mudanza de domicilio",
+    "Description": "Permiso remunerado de 1 días naturales para el trabajador que cambia de domicilio. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 15 días.",
+    "IsEnabled": true
+  },
+  {
+    "Id": "16E5767E-F9D5-410B-B4AD-C9776E8712F2",
+    "CodeInternal": "OCP006",
+    "Name": "Obligaciones Carácter Público",
+    "Description": "Permiso relacionado con situaciones publicas. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.",
+    "IsEnabled": false
+  },
+  {
+    "Id": "F4E25DF1-82C4-4685-91AC-7305F6EB9ADD",
+    "CodeInternal": "PCD007",
+    "Name": "Calamidad Domóstica",
+    "Description": "Permiso remunerado de 2 días naturales para el trabajador que tenga una grave calamidad en su hogar. Este permiso tiene que preavisarlo a la empresa lo más pronto posible.",
+    "IsEnabled": true
+  }
+]
