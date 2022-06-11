@@ -10,5 +10,5 @@ using System;
 
 namespace HureIT.Shared.DTO.Workflow.Permits
 {
-    public record GetAllPermitsResponse(Guid Id, Guid EmployeeId, string EmployeeFullName, Guid PermissionTypeId, string PermissionTypeName);
+    public record GetAllPermitsResponse(Guid Id, Guid EmployeeId, Guid PermitTypeId, DateTime StartDatePermit, DateTime EndDatePermit, string EmployeeName, string PermitTypeName, string PermitDescription, string StartDate, string EndDate);
 }
