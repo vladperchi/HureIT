@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Modules\Identity\Modules.Identity.Api\Modules.Identity.Api.csproj" />
+    <ProjectReference Include="..\..\Modules\Workflow\Modules.Workflow.Api\Modules.Workflow.Api.csproj" />
     <ProjectReference Include="..\..\Shared\Shared.Infrastructure\Shared.Infrastructure.csproj" />
   </ItemGroup>
 
