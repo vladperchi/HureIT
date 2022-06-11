@@ -17,7 +17,17 @@ namespace HureIT.Shared.Core.Interfaces.Services.Workflow
     {
         Task<Result<GetEmployeeByIdResponse>> GetDetailsAsync(Guid id);
 
+        Task<bool> IsEmailUniqueAsync(string email);
+
+        Task<bool> ExistsWithPhoneNumberAsync(string phoneNumber);
+
+        Task<bool> IsEmployeeActiveAsyn(Guid id);
+
+        Task<bool> GreaterThan18(DateTime value);
+
         Task<Result<string>> GetPictureAsync(Guid id);
+
+        Task<string> GenerateFileName(int length);
 
         Task<Result<Guid>> RemoveAsync(Guid id);
 

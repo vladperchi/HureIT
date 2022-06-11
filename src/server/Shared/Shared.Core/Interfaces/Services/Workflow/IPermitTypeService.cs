@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using HureIT.Shared.Core.Wrapper;
 using HureIT.Shared.DTO.Workflow.PermitTypes;
 
-namespace HureIT.Shared.Core.Interfaces.Services.Flow
+namespace HureIT.Shared.Core.Interfaces.Services.Workflow
 {
     public interface IPermitTypeService
     {
@@ -19,7 +19,11 @@ namespace HureIT.Shared.Core.Interfaces.Services.Flow
 
         Task<Result<Guid>> RemoveAsync(Guid id);
 
-        Task<string> GenerateFileName(int length);
+        Task<bool> IsNameUnique(string name);
+
+        Task<bool> ExistsWithCode(string codeInternal);
+
+        Task<bool> ExistsWithDescription(string description);
 
         Task<int> GetCountAsync();
     }

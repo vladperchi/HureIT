@@ -9,15 +9,24 @@
 using System;
 using System.Threading.Tasks;
 using HureIT.Shared.Core.Wrapper;
+using HureIT.Shared.DTO.Workflow.Employees;
 
 namespace HureIT.Shared.Core.Interfaces.Services.Workflow
 {
     public interface IPermitService
     {
+        Task<bool> IsEmployeeUsedAsync(Guid employeeId);
+
+        Task<bool> IsPermitTypeUseAsync(Guid permitTypeId);
+
+        Task<bool> IsOverlappingDatesAsync(Guid employeeId, DateTime startDate, DateTime endDate);
+
+        Task<Result<GetEmployeeByIdResponse>> GetAssignedPermitsByEmployeeAsycn(Guid id);
+
+        Task<bool> IsPermitsGreaterThan30Days(DateTime startDate, DateTime endDate);
+
         Task<Result<Guid>> ChangeStatusEmployeeAsync(Guid employeeId, bool status);
 
-        Task<bool> IsEmployeeUsed(Guid employeeId);
-
-        Task<bool> IsPermitTypeUsed(Guid permitTypeId);
+        Task<Result<GetEmployeesWithPermitsResponse>> GetNumberPermitsByEmployeeAsycn(Guid id);
     }
 }

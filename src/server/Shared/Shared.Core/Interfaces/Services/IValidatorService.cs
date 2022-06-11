@@ -6,6 +6,7 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------
 
+using System;
 using System.Threading.Tasks;
 
 namespace HureIT.Shared.Core.Interfaces.Services
@@ -16,6 +17,8 @@ namespace HureIT.Shared.Core.Interfaces.Services
 
         Task<bool> IsLetterOrDigit(string value);
 
-        Task<bool> IsOnlyNumber(int value);
+        Task<bool> IsOnlyNumber(string value);
+
+        Task<bool> IsValidDate(string date);
     }
 }
