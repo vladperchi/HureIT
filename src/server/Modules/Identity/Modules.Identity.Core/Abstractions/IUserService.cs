@@ -27,8 +27,6 @@ namespace HureIT.Modules.Identity.Core.Abstractions
 
         Task<IResult<string>> UpdateAsync(UpdateUserRequest request);
 
-        Task<IResult<string>> UpdatePictureAsync(string userId, UpdateUserPictureRequest request);
-
         Task<IResult<string>> UpdateRolesByUserAsync(string userId, UserRolesRequest request);
 
         Task<IResult<string>> ConfirmEmailAsync(string userId, string code);
@@ -45,7 +43,9 @@ namespace HureIT.Modules.Identity.Core.Abstractions
 
         Task<bool> ExistsWithNameAsync(string name);
 
-        Task<bool> ExistsWithEmailAsync(string email, string exceptId = null);
+        Task<bool> IsEmailUniqueAsync(string email, string exceptId = null);
+
+        Task<bool> ExistsWithPhoneNumberAsync(string phoneNumber, string exceptId = null);
 
         Task<int> GetCountAsync();
     }
