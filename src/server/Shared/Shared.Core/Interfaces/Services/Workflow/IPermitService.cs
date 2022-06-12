@@ -28,5 +28,7 @@ namespace HureIT.Shared.Core.Interfaces.Services.Workflow
         Task<Result<Guid>> ChangeStatusEmployeeAsync(Guid employeeId, bool status);
 
         Task<Result<GetEmployeesWithPermitsResponse>> GetNumberPermitsByEmployeeAsycn(Guid id);
+
+        Task<int> GetCountAsync();
     }
 }
