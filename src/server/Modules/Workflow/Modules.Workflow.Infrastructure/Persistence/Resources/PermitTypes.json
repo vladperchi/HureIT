@@ -2,7 +2,7 @@
   {
     "Id": "69D3F1C8-0317-4332-9656-5F363960E210",
     "CodeInternal": "PCM001",
-    "Name": "Cita Médica",
+    "Name": "Cita Medica",
     "Description": "Permiso remunerado de 5 horas maxímo para el trabajador con una cita médica. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 3 días.",
     "IsEnabled": true
   },
@@ -37,14 +37,14 @@
   {
     "Id": "16E5767E-F9D5-410B-B4AD-C9776E8712F2",
     "CodeInternal": "OCP006",
-    "Name": "Obligaciones Carácter Público",
+    "Name": "Obligaciones Caracter Publico",
     "Description": "Permiso relacionado con situaciones publicas. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.",
     "IsEnabled": false
   },
   {
     "Id": "F4E25DF1-82C4-4685-91AC-7305F6EB9ADD",
     "CodeInternal": "PCD007",
-    "Name": "Calamidad Domóstica",
+    "Name": "Calamidad Domestica",
     "Description": "Permiso remunerado de 2 días naturales para el trabajador que tenga una grave calamidad en su hogar. Este permiso tiene que preavisarlo a la empresa lo más pronto posible.",
     "IsEnabled": true
   }

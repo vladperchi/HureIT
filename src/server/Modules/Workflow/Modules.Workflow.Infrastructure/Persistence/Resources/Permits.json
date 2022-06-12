@@ -43,10 +43,10 @@
   },
   {
     "Id": "D0C11FF5-02AB-440A-966C-6AA5EDA9B2BB",
-    "EmployeeId": "8B7CECC3-E157-419A-AA14-99D5A3C934A0",
-    "PermitTypeId": "4F426DDE-E40C-4819-97B5-AEF5F94A5D53",
-    "StartDatePermit": "2017-11-20T08:30:00.782Z",
-    "EndDatePermit": "2017-11-21T08:30:00.782Z"
+    "EmployeeId": "0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7",
+    "PermitTypeId": "3CCA2E47-C344-4E6D-98C2-57FE35FC0F35",
+    "StartDatePermit": "2022-07-07T08:30:00.782Z",
+    "EndDatePermit": "2022-07-17T08:30:00.782Z"
   },
 
   {
