@@ -77,8 +77,8 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [x] Domain Driven Design
 -   [x] Entity Framework Core
 -   [x] Auto DB Migrations
--   [ ] Database Seeding
--   [ ] CRUD Operations
+-   [x] Database Seeding
+-   [x] CRUD Operations
 
 <details>
   <summary>Click to See More!</summary>
@@ -94,15 +94,16 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [x] Serilog Integration - File & SEQ
 -   [x] In-Memory Database
 -   [x] Paginated API Responses
--   [ ] User & Role Based Permission
--   [ ] Identity Seeding
--   [ ] JWT Authentication
+-   [x] User & Role Based Permission
+-   [x] Identity Seeding
+-   [x] JWT Authentication
 -   [x] HTTP Interceptor
 -   [x] Custom EventLogs
 -   [x] API Versioning
 -   [x] Email Service
 -   [x] File Upload
 -   [x] Export Excel
+-   [x] Dashboard Updated
 -   [ ] Docker Support
 
 </details>
@@ -176,7 +177,7 @@ Default Roles are as follows.
 Here are the credentials for the default users.
 
 -   Email - `vladperchi@hureit.com` / Pass: `@4dm1nP4$$w0rd#`
--   Email - `paulaandrea@hureit.com` / Pass: `@B4s1cP4$$w0rd#`
+-   Email - `paolamelia@hureit.com` / Pass: `@B4s1cP4$$w0rd#`
 
 You can use these credentials to generate JWT tokens in the `api/identity/tokens` endpoint.
 
