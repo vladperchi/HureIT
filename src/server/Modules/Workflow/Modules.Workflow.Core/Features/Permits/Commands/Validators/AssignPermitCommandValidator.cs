@@ -33,7 +33,7 @@ namespace HureIT.Modules.Workflow.Core.Features.Permits.Commands.Validators
                 .NotEmpty().WithMessage(localizer["{PropertyName} must not be empty."]);
 
             RuleFor(x => x)
-                .MustAsync(async (x, _) => !(await permitService.IsOverlappingDatesAsync(x.EmployeeId, x.StartDatePermit, x.EndDatePermit)))
+                .MustAsync(async (x, _) => !await permitService.IsOverlappingDatesAsync(x.EmployeeId, x.StartDatePermit, x.EndDatePermit))
                     .WithMessage(localizer["Should be no overlapping employee permissions."]);
 
             RuleFor(x => x)
