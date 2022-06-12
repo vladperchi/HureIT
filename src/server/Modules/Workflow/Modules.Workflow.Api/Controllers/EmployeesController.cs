@@ -17,7 +17,6 @@ using HureIT.Shared.Core.Features.Filters;
 using HureIT.Shared.Core.Interfaces.Services.Workflow;
 using HureIT.Shared.DTO.Workflow.Employees;
 using HureIT.Shared.Infrastructure.Permissions;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
