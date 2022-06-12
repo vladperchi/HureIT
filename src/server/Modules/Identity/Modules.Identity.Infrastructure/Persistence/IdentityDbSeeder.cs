@@ -63,7 +63,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Persistence
         {
             Task.Run(async () =>
             {
-                var roleList = new List<string> { RolesConstant.Administrator, RolesConstant.Operator };
+                var roleList = new List<string> { RolesConstant.Administrator, RolesConstant.Supervisor, RolesConstant.Operator };
                 foreach (string roleName in roleList)
                 {
                     var role = new HureRole(roleName);
@@ -144,11 +144,11 @@ namespace HureIT.Modules.Identity.Infrastructure.Persistence
 
                 var operatorUser = new HureUser
                 {
-                    FirstName = "Paula Andrea",
-                    LastName = "Won",
-                    Email = "paulaandrea@hureit.com",
-                    UserName = "paula.andrea",
-                    PhoneNumber = "00573043600513",
+                    FirstName = "Paola Mella",
+                    LastName = "Pardo",
+                    Email = "paolamelia@hureit.com",
+                    UserName = "paola.mella",
+                    PhoneNumber = "0012934892819",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
                     IsActive = true,
