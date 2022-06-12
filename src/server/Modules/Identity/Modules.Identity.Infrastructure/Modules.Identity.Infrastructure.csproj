@@ -32,6 +32,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\Shared\Shared.Infrastructure\Shared.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\Workflow\Modules.Workflow.Core\Modules.Workflow.Core.csproj" />
       <ProjectReference Include="..\Modules.Identity.Core\Modules.Identity.Core.csproj" />
     </ItemGroup>
 

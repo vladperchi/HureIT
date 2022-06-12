@@ -13,6 +13,7 @@ using HureIT.Modules.Identity.Core.Settings;
 using HureIT.Modules.Identity.Infrastructure.Persistence;
 using HureIT.Modules.Identity.Infrastructure.Services;
 using HureIT.Shared.Core.Interfaces.Services;
+using HureIT.Shared.Core.Interfaces.Services.Dashboard;
 using HureIT.Shared.Core.Interfaces.Services.Identity;
 using HureIT.Shared.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
@@ -35,6 +36,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Extensions
                 .AddTransient<IUserService, UserService>()
                 .AddTransient<IRoleService, RoleService>()
                 .AddTransient<IRoleClaimService, RoleClaimService>()
+                .AddTransient<IStatsService, StatsService>()
                 .AddDatabaseContext<IdentityDbContext>()
                 .AddScoped<IIdentityDbContext>(provider => provider.GetService<IdentityDbContext>())
                 .AddIdentity<HureUser, HureRole>(options =>
