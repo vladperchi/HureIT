@@ -162,7 +162,7 @@ namespace HureIT.Modules.Identity.Api.Controllers
             return Ok(response);
         }
 
-        [HttpGet("permissions/byrole/{roleId}")]
+        [HttpGet("permissions-byrole/{roleId}")]
         [HavePermission(PermissionsConstant.RoleClaims.View)]
         [SwaggerOperation(
             Summary = "Get Permission List By Rol Id.",
