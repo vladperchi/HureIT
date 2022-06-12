@@ -110,5 +110,7 @@ namespace HureIT.Modules.Workflow.Infrastructure.Services
         {
             throw new NotImplementedException();
         }
+
+        public async Task<int> GetCountAsync() => await _context.Permits.CountAsync();
     }
 }
