@@ -305,33 +305,7 @@
                                 "url": {
                                     "raw": "{{url}}/identity/roles/permissions-delete/38",
                                     "host": ["{{url}}"],
-                                    "path": [
-                                        "identity",
-                                        "roles",
-                                        "permissions-delete",
-                                        "38"
-                                    ]
-                                }
-                            },
-                            "response": []
-                        },
-                        {
-                            "name": "get-current-user-permissions",
-                            "request": {
-                                "auth": {
-                                    "type": "bearer",
-                                    "bearer": [{
-                                        "key": "token",
-                                        "value": "{{token}}",
-                                        "type": "string"
-                                    }]
-                                },
-                                "method": "GET",
-                                "header": [],
-                                "url": {
-                                    "raw": "{{url}}/identity/roles",
-                                    "host": ["{{url}}"],
-                                    "path": ["identity", "roles"]
+                                    "path": ["identity", "roles", "permissions-delete", "38"]
                                 }
                             },
                             "response": []
@@ -350,12 +324,13 @@
                                 "method": "GET",
                                 "header": [],
                                 "url": {
-                                    "raw": "{{url}}/identity/roles/e7385c07-2259-40a6-bc77-284f809afc21",
+                                    "raw": "{{url}}/identity/roles/permissions-byrole/95f5c3e3-531f-489b-b28f-58d0d83db816",
                                     "host": ["{{url}}"],
                                     "path": [
                                         "identity",
                                         "roles",
-                                        "e7385c07-2259-40a6-bc77-284f809afc21"
+                                        "permissions-byrole",
+                                        "95f5c3e3-531f-489b-b28f-58d0d83db816"
                                     ]
                                 }
                             },
@@ -482,7 +457,7 @@
                                 "header": [],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\r\n   \"id\": \"7ce402d5-4c9f-41c6-a942-d58f5d0c2f15\",\r\n   \"firstName\":\"David\",\r\n   \"lastName\":\"Vanegas\",\r\n   \"email\":\"davidvanegas@hureit.com\",\r\n   \"phoneNumber\":\"0012934898193\",\r\n   \"currentPassword\":\"@BasicP4$$w0rd#\",\r\n   \"password\":\"@B4s1cP4ssw0rd#\",\r\n   \"confirmPassword\":\"@B4s1cP4ssw0rd#\"\r\n}",
+                                    "raw": "{\r\n   \"id\": \"912e5770-75f6-4cd9-9d5a-008c42855ad9\",\r\n   \"firstName\":\"Paola Melia\",\r\n   \"lastName\":\"Prado Ramirez\",\r\n   \"email\":\"paolamelia@hureit.com\",\r\n   \"phoneNumber\":\"0012934898193\",\r\n   \"currentPassword\":\"@B4s1cP4$$w0rd#\",\r\n   \"password\":\"@BasicPassw0rd#\",\r\n   \"confirmPassword\":\"@BasicPassw0rd#\"\r\n}",
                                     "options": {
                                         "raw": {
                                             "language": "json"
@@ -613,30 +588,6 @@
                             "response": []
                         }
                     ]
-                },
-                {
-                    "name": "Event-Logs",
-                    "item": [{
-                        "name": "get-current-user-logs",
-                        "request": {
-                            "auth": {
-                                "type": "bearer",
-                                "bearer": [{
-                                    "key": "token",
-                                    "value": "{{token}}",
-                                    "type": "string"
-                                }]
-                            },
-                            "method": "GET",
-                            "header": [],
-                            "url": {
-                                "raw": "{{url}}/identity/logger",
-                                "host": ["{{url}}"],
-                                "path": ["identity", "logger"]
-                            }
-                        },
-                        "response": []
-                    }]
                 }
             ]
         },
@@ -645,7 +596,7 @@
             "item": [{
                     "name": "Employees",
                     "item": [{
-                            "name": "get-all",
+                            "name": "get-all-employees",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -666,7 +617,7 @@
                             "response": []
                         },
                         {
-                            "name": "get-id",
+                            "name": "get-id-employee",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -691,7 +642,7 @@
                             "response": []
                         },
                         {
-                            "name": "get-number-permits",
+                            "name": "get-permits-employee",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -712,7 +663,7 @@
                             "response": []
                         },
                         {
-                            "name": "get-picture",
+                            "name": "get-picture-employee",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -738,7 +689,7 @@
                             "response": []
                         },
                         {
-                            "name": "register",
+                            "name": "register-employee",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -768,7 +719,7 @@
                             "response": []
                         },
                         {
-                            "name": "update",
+                            "name": "update-employee",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -798,7 +749,7 @@
                             "response": []
                         },
                         {
-                            "name": "delete",
+                            "name": "delete-employee",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -827,7 +778,7 @@
                 {
                     "name": "PermitTypes",
                     "item": [{
-                            "name": "get-all",
+                            "name": "get-all-permitTypes",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -848,7 +799,7 @@
                             "response": []
                         },
                         {
-                            "name": "get-id",
+                            "name": "get-id-permitType",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -873,7 +824,7 @@
                             "response": []
                         },
                         {
-                            "name": "register",
+                            "name": "register-permitType",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -903,7 +854,7 @@
                             "response": []
                         },
                         {
-                            "name": "update",
+                            "name": "update-permitType",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -917,7 +868,7 @@
                                 "header": [],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\r\n   \"id\": \"16E5767E-F9D5-410B-B4AD-C9776E8712F2\",\r\n   \"name\": \"Obligaciones Públicas\",\r\n   \"codeinternal\": \"POP006\",\r\n   \"description\": \"Permiso relacionado con situaciones concretas e ineludibles y, por lo tanto, la duración del permiso dependerá de cada caso. Por ejemplo, ausentarse para ejercer el derecho al voto, presentarse a una citación judicial, renovar el DNI, ser requerido como jurado popular o como miembro en una mesa electoral. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.\",\r\n   \"isenabled\": true\r\n}",
+                                    "raw": "{\r\n   \"id\": \"16E5767E-F9D5-410B-B4AD-C9776E8712F2\",\r\n   \"name\": \"Obligaciones Publicas\",\r\n   \"codeinternal\": \"POP006\",\r\n   \"description\": \"Permiso relacionado con situaciones concretas e ineludibles y, por lo tanto, la duración del permiso dependerá de cada caso. Por ejemplo, ausentarse para ejercer el derecho al voto, presentarse a una citación judicial, renovar el DNI, ser requerido como jurado popular o como miembro en una mesa electoral. Este permiso tiene que preavisarlo a la empresa con un mínimo de antelación de 30 días.\",\r\n   \"isenabled\": true\r\n}",
                                     "options": {
                                         "raw": {
                                             "language": "json"
@@ -933,7 +884,7 @@
                             "response": []
                         },
                         {
-                            "name": "delete",
+                            "name": "delete-permitType",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -962,7 +913,7 @@
                 {
                     "name": "Permits",
                     "item": [{
-                            "name": "get-all",
+                            "name": "get-all-permits",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -983,7 +934,7 @@
                             "response": []
                         },
                         {
-                            "name": "get-id",
+                            "name": "get-id-permit",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -1008,7 +959,7 @@
                             "response": []
                         },
                         {
-                            "name": "register",
+                            "name": "register-permit",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -1038,7 +989,7 @@
                             "response": []
                         },
                         {
-                            "name": "update",
+                            "name": "update-permit",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -1052,7 +1003,7 @@
                                 "header": [],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\r\n   \"id\": \"D0C11FF5-02AB-440A-966C-6AA5EDA9B2BB\",\r\n   \"employeeid\": \"0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7\",\r\n   \"permittypeid\": \"3CCA2E47-C344-4E6D-98C2-57FE35FC0F35\",\r\n   \"startdatepermit\": \"2020-10-14T08:00:00.782Z\",\r\n   \"enddatepermit\": \"2020-10-17T08:00:00.782Z\"\r\n}",
+                                    "raw": "{\r\n   \"id\": \"D0C11FF5-02AB-440A-966C-6AA5EDA9B2BB\",\r\n   \"employeeid\": \"0C3A18AC-068D-41C2-BA37-4CA1BCD6F9F7\",\r\n   \"permittypeid\": \"2E191A01-5623-4C92-B9DF-811955F990E8\",\r\n   \"startdatepermit\": \"2022-11-07T08:00:00.782Z\",\r\n   \"enddatepermit\": \"2022-12-17T08:00:00.782Z\"\r\n}",
                                     "options": {
                                         "raw": {
                                             "language": "json"
@@ -1068,7 +1019,7 @@
                             "response": []
                         },
                         {
-                            "name": "delete",
+                            "name": "delete-permit",
                             "request": {
                                 "auth": {
                                     "type": "bearer",
@@ -1097,9 +1048,9 @@
             ]
         },
         {
-            "name": "Summary",
+            "name": "Events",
             "item": [{
-                "name": "dashboard",
+                "name": "get-event-logs",
                 "request": {
                     "auth": {
                         "type": "bearer",
@@ -1112,9 +1063,33 @@
                     "method": "GET",
                     "header": [],
                     "url": {
-                        "raw": "{{url}}/dashboard",
+                        "raw": "{{url}}/identity/logger",
                         "host": ["{{url}}"],
-                        "path": ["dashboard"]
+                        "path": ["identity", "logger"]
+                    }
+                },
+                "response": []
+            }]
+        },
+        {
+            "name": "Summary",
+            "item": [{
+                "name": "dashboard-stats",
+                "request": {
+                    "auth": {
+                        "type": "bearer",
+                        "bearer": [{
+                            "key": "token",
+                            "value": "{{token}}",
+                            "type": "string"
+                        }]
+                    },
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "{{url}}/identity/dashboard",
+                        "host": ["{{url}}"],
+                        "path": ["identity", "dashboard"]
                     }
                 },
                 "response": []
@@ -1150,7 +1125,7 @@
         },
         {
             "key": "token",
-            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjJlMDUxYWRiLTgyYzctNGEwMy05OTExLTI3NWQ4MmM1NjU1MSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InZsYWRwZXJjaGlAaHVyZWl0LmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDA1NzMwNDM2MDA1MTIiLCJGdWxsTmFtZSI6IlZsYWRwZXJjaGkgV29uIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlZsYWRwZXJjaGkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiV29uIiwiSXBBZGRyZXNzIjoiMC4wLjAuMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmF0b3IiLCJQZXJtaXNzaW9uIjpbIlBlcm1pc3Npb25zLkVtcGxveWVlcy5WaWV3IiwiUGVybWlzc2lvbnMuRW1wbG95ZWVzLlZpZXdBbGwiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuVmlld0xpc3QiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuUmVnaXN0ZXIiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuVXBkYXRlIiwiUGVybWlzc2lvbnMuRW1wbG95ZWVzLlJlbW92ZSIsIlBlcm1pc3Npb25zLkVtcGxveWVlcy5FeHBvcnQiLCJQZXJtaXNzaW9ucy5QZXJtaXRUeXBlcy5WaWV3IiwiUGVybWlzc2lvbnMuUGVybWl0VHlwZXMuVmlld0FsbCIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLkNyZWF0ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLlVwZGF0ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLlJlbW92ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLkV4cG9ydCIsIlBlcm1pc3Npb25zLldvcmtQZXJtaXRzLlZpZXciLCJQZXJtaXNzaW9ucy5Xb3JrUGVybWl0cy5WaWV3QWxsIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuQXNzaWduIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuVXBkYXRlIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuUmVtb3ZlIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuRXhwb3J0IiwiUGVybWlzc2lvbnMuVXNlcnMuVmlldyIsIlBlcm1pc3Npb25zLlVzZXJzLlZpZXdBbGwiLCJQZXJtaXNzaW9ucy5Vc2Vycy5SZWdpc3RlciIsIlBlcm1pc3Npb25zLlVzZXJzLkVkaXQiLCJQZXJtaXNzaW9ucy5Vc2Vycy5EZWxldGUiLCJQZXJtaXNzaW9ucy5Vc2Vycy5FeHBvcnQiLCJQZXJtaXNzaW9ucy5Sb2xlcy5WaWV3IiwiUGVybWlzc2lvbnMuUm9sZXMuVmlld0FsbCIsIlBlcm1pc3Npb25zLlJvbGVzLkFkZE9yVXBkYXRlIiwiUGVybWlzc2lvbnMuUm9sZXMuRGVsZXRlIiwiUGVybWlzc2lvbnMuUm9sZUNsYWltcy5WaWV3IiwiUGVybWlzc2lvbnMuUm9sZUNsYWltcy5DcmVhdGUiLCJQZXJtaXNzaW9ucy5Sb2xlQ2xhaW1zLkVkaXQiLCJQZXJtaXNzaW9ucy5Sb2xlQ2xhaW1zLkRlbGV0ZSIsIlBlcm1pc3Npb25zLkxvZ3MuVmlld0FsbCIsIlBlcm1pc3Npb25zLkxvZ3MuQ3JlYXRlIiwiUGVybWlzc2lvbnMuRGFzaGJvYXJkcy5WaWV3IiwiUGVybWlzc2lvbnMuSGFuZ2ZpcmUuVmlld0FsbCJdLCJleHAiOjE2NTQ4NDg4MTV9.o6_JffOw9OO_A2JWsFzjwN2Gfk7I49hk334iwCfzTHc"
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjE1NGJkZmVmLWMxOGMtNDZlZC04NjY5LWU4ZjI0OWQ0YmM1ZSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6InZsYWRwZXJjaGlAaHVyZWl0LmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL21vYmlsZXBob25lIjoiMDA1NzMwNDM2MDA1MTIiLCJGdWxsTmFtZSI6IlZsYWRwZXJjaGkgV29uIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IlZsYWRwZXJjaGkiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zdXJuYW1lIjoiV29uIiwiSXBBZGRyZXNzIjoiMC4wLjAuMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluaXN0cmF0b3IiLCJQZXJtaXNzaW9uIjpbIlBlcm1pc3Npb25zLkVtcGxveWVlcy5WaWV3IiwiUGVybWlzc2lvbnMuRW1wbG95ZWVzLlZpZXdBbGwiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuVmlld0xpc3QiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuUmVnaXN0ZXIiLCJQZXJtaXNzaW9ucy5FbXBsb3llZXMuVXBkYXRlIiwiUGVybWlzc2lvbnMuRW1wbG95ZWVzLlJlbW92ZSIsIlBlcm1pc3Npb25zLkVtcGxveWVlcy5FeHBvcnQiLCJQZXJtaXNzaW9ucy5QZXJtaXRUeXBlcy5WaWV3IiwiUGVybWlzc2lvbnMuUGVybWl0VHlwZXMuVmlld0FsbCIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLkNyZWF0ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLlVwZGF0ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLlJlbW92ZSIsIlBlcm1pc3Npb25zLlBlcm1pdFR5cGVzLkV4cG9ydCIsIlBlcm1pc3Npb25zLldvcmtQZXJtaXRzLlZpZXciLCJQZXJtaXNzaW9ucy5Xb3JrUGVybWl0cy5WaWV3QWxsIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuQXNzaWduIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuVXBkYXRlIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuUmVtb3ZlIiwiUGVybWlzc2lvbnMuV29ya1Blcm1pdHMuRXhwb3J0IiwiUGVybWlzc2lvbnMuVXNlcnMuVmlldyIsIlBlcm1pc3Npb25zLlVzZXJzLlZpZXdBbGwiLCJQZXJtaXNzaW9ucy5Vc2Vycy5SZWdpc3RlciIsIlBlcm1pc3Npb25zLlVzZXJzLkVkaXQiLCJQZXJtaXNzaW9ucy5Vc2Vycy5EZWxldGUiLCJQZXJtaXNzaW9ucy5Vc2Vycy5FeHBvcnQiLCJQZXJtaXNzaW9ucy5Sb2xlcy5WaWV3IiwiUGVybWlzc2lvbnMuUm9sZXMuVmlld0FsbCIsIlBlcm1pc3Npb25zLlJvbGVzLkFkZE9yVXBkYXRlIiwiUGVybWlzc2lvbnMuUm9sZXMuRGVsZXRlIiwiUGVybWlzc2lvbnMuUm9sZUNsYWltcy5WaWV3IiwiUGVybWlzc2lvbnMuUm9sZUNsYWltcy5DcmVhdGUiLCJQZXJtaXNzaW9ucy5Sb2xlQ2xhaW1zLkVkaXQiLCJQZXJtaXNzaW9ucy5Sb2xlQ2xhaW1zLkRlbGV0ZSIsIlBlcm1pc3Npb25zLkxvZ3MuVmlld0FsbCIsIlBlcm1pc3Npb25zLkxvZ3MuQ3JlYXRlIiwiUGVybWlzc2lvbnMuRGFzaGJvYXJkcy5WaWV3IiwiUGVybWlzc2lvbnMuSGFuZ2ZpcmUuVmlld0FsbCJdLCJleHAiOjE2NTUwMDg0NDV9.fHEBuDYRuFe-FfK0ZGkJApZ4Y9OaLt64MZr_6kM2zlE"
         },
         {
             "key": "email_user",
