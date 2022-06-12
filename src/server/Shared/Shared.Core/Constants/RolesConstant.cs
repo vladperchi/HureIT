@@ -11,6 +11,7 @@ namespace HureIT.Shared.Core.Constants
     public static class RolesConstant
     {
         public const string Administrator = "Administrator";
+        public const string Supervisor = "Supervisor";
         public const string Operator = "Operator";
     }
 }
