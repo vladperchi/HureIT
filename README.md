@@ -105,15 +105,15 @@ Take a look in detail at the [structure][structure-url] of the solution
 -   [x] File Upload
 -   [x] Export Excel
 -   [x] Dashboard Updated
--   [ ] Docker Support
+-   [x] Docker Support
 
 </details>
 
 ## Project Status
 
 -   API - `In Progress`
+-   Docker - `In Progress`
 -   Angular/UI - `Coming Soon!`
--   Docker - `Coming Soon!`
 
 ## Prerequisites
 
@@ -156,7 +156,7 @@ Then you can continue the list listed below:
 5. By default, the database is migrated. Take a look at the [migrations][migrations-url] of the solution
 6. Some default data is also included in this database, such as roles, users, employees, etc.
 7. Browse to https://localhost:5001/ to Api HureIT!
-8. Browse to http://localhost:5341/#/events?autorefresh to Seq Logs!.
+8. Browse to http://localhost:5341/ to Seq Logs!.
 
 <!--## Running Angular
 
