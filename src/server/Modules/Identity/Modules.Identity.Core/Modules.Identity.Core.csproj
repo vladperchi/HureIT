@@ -9,12 +9,12 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DocumentationFile>HureIT.Modules.Identity.Core.xml</DocumentationFile>
-        <CodeAnalysisRuleSet>..\..\..\..\..\HureIT.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisRuleSet>..\..\..\..\..\hureit.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DocumentationFile>HureIT.Modules.Identity.Core.xml</DocumentationFile>
-        <CodeAnalysisRuleSet>..\..\..\..\..\HureIT.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisRuleSet>..\..\..\..\..\hureit.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <ItemGroup>
