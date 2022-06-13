@@ -1,5 +1,6 @@
 <!-- PROJECT SHIELDS -->
 
+[![Conventional Commits][conventional-commits-shield]][conventional-commits-url]
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -145,8 +146,6 @@ docker-compose -f infrastructure.yml up -d
 
 Note: It will start the required infrastructure in the background.
 
--   Browse to http://localhost:5341/#/events?autorefresh to Seq Logs!.
-
 Then you can continue the list listed below:
 
 1. Open up `HureIT.sln` in VS2022.
@@ -157,13 +156,14 @@ Then you can continue the list listed below:
 5. By default, the database is migrated. Take a look at the [migrations][migrations-url] of the solution
 6. Some default data is also included in this database, such as roles, users, employees, etc.
 7. Browse to https://localhost:5001/ to Api HureIT!
+8. Browse to http://localhost:5341/#/events?autorefresh to Seq Logs!.
 
-## Running Angular
+<!--## Running Angular
 
 -   Navigate to hureit\src\client via terminal.
 -   Run `npm install` to install all the required packages
 -   Run `ng serve`
--   Navigate to https://localhost:4200 or https://localhost:4201 on your browser
+-   Navigate to https://localhost:4200 or https://localhost:4201 on your browser-->
 
 ## Default Roles & Credentials
 
@@ -255,3 +255,5 @@ Here are a few ways by which you can support.
 [twitter-code-url]: https://www.twitter.com/codewithvlad
 [twitter-vlad-url]: https://www.twitter.com/vladperchi
 [buymeacoffee-url]: https://www.buymeacoffee.com/codewithvlad
+[conventional-commits-shield]: https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white
+[conventional-commits-url]: https://conventionalcommits.org
