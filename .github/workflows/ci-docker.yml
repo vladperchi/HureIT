@@ -32,9 +32,9 @@ jobs:
     - name: Git Checkout
       uses: actions/checkout@v2
 
-    - name: Build to Docker image
-      run:
-        docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
+    #- name: Build to Docker image
+    #  run:
+    #   docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
 
     # Login against a Docker registry except on PR
     # https://github.com/docker/login-action
