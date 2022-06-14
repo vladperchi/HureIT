@@ -32,43 +32,23 @@ jobs:
     - name: Git Checkout
       uses: actions/checkout@v2
 
-    - name: Build to Docker image
-      run:
-       docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
+    - name: Setup Docker buildx
+      uses: docker/setup-buildx-action@v1
 
-    # Login against a Docker registry except on PR
-    # https://github.com/docker/login-action
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
         username: ${{ env.DOCKERHUB_USERNAME }}
         password: ${{ env.DOCKERHUB_PASSWORD }}
 
-    # Extract metadata (tags, labels) for Docker
-    # https://github.com/docker/metadata-action
-    - name: Extract Docker metadata
-      id: meta
-      uses: docker/metadata-action@v1
-      with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-
-    # Build and push Docker image with Buildx (don't push on PR)
-    # https://github.com/docker/build-push-action
     - name: Push Image to Docker Hub
-      run:
-        docker push $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
+      id: build-and-push
+      uses: docker/build-push-action@v2.9.0
+      with:
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ env.DOCKER_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        labels: ${{ steps.meta.outputs.labels }}
 
-
-    #- name: Push Image to Docker Hub
-    #  id: build-and-push
-    #  uses: docker/build-push-action@v2.9.0
-    #  with:
-    #    push: ${{ github.event_name != 'pull_request' }}
-    #    tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-    #    labels: ${{ steps.meta.outputs.labels }}
-
-    # Install the cosign tool except on PR
-    # https://github.com/sigstore/cosign
     - name: cosign-installer
       if: github.event_name != 'pull_request'
       uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
