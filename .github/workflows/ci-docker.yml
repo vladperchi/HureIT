@@ -17,7 +17,7 @@ env:
     DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     IMAGE_NAME: webapi-hureit-netcore
-    IMAGE_TAG: 0.0.${{ github.run_number }}
+    IMAGE_TAG: ${{ github.run_number }}
 
 jobs:
 
@@ -32,9 +32,9 @@ jobs:
     - name: Git Checkout
       uses: actions/checkout@v2
 
-    #- name: Build to Docker image
-    #  run:
-    #   docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
+    - name: Build to Docker image
+      run:
+       docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
 
     # Login against a Docker registry except on PR
     # https://github.com/docker/login-action
@@ -55,12 +55,17 @@ jobs:
     # Build and push Docker image with Buildx (don't push on PR)
     # https://github.com/docker/build-push-action
     - name: Push Image to Docker Hub
-      id: build-and-push
-      uses: docker/build-push-action@v2.9.0
-      with:
-        push: ${{ github.event_name != 'pull_request' }}
-        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
-        labels: ${{ steps.meta.outputs.labels }}
+      run:
+        docker push $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
+
+
+    #- name: Push Image to Docker Hub
+    #  id: build-and-push
+    #  uses: docker/build-push-action@v2.9.0
+    #  with:
+    #    push: ${{ github.event_name != 'pull_request' }}
+    #    tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+    #    labels: ${{ steps.meta.outputs.labels }}
 
     # Install the cosign tool except on PR
     # https://github.com/sigstore/cosign
