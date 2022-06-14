@@ -3,8 +3,6 @@ name: ci-docker
 on:
   push:
     branches: [ master ]
-    paths:
-      - .github/workflows/ci-docker.yml
   pull_request:
     branches: [ master ]
   schedule:
