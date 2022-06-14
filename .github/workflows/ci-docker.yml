@@ -39,7 +39,7 @@ jobs:
 
     - name: Docker metadata
       id: meta
-      uses: docker/metadata-action@v1
+      uses: docker/metadata-action@v4
       with:
         images: ${{ env.DOCKER_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
