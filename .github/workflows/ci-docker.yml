@@ -1,0 +1,78 @@
+name: ci-docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '30 1 * * *'
+
+  workflow_dispatch:
+
+env:
+    REGISTRY: ghcr.io
+    DOCKER_REPOSITORY: hureitdocker
+    DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+    DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    IMAGE_NAME: webapi-hureit-netcore
+    IMAGE_TAG: 0.0.${{ GITHUB_RUN_ID }}
+
+jobs:
+
+  build-push-container:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+
+    - name: Git Checkout
+      uses: actions/checkout@v2
+
+    - name: Build to Docker image
+      run:
+        docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
+
+    # Login against a Docker registry except on PR
+    # https://github.com/docker/login-action
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ env.DOCKERHUB_USERNAME }}
+        password: ${{ env.DOCKERHUB_PASSWORD }}
+
+    # Extract metadata (tags, labels) for Docker
+    # https://github.com/docker/metadata-action
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@v1
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+    # Build and push Docker image with Buildx (don't push on PR)
+    # https://github.com/docker/build-push-action
+    - name: Push Image to Docker Hub
+      id: build-and-push
+      uses: docker/build-push-action@v2.9.0
+      with:
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+    # Install the cosign tool except on PR
+    # https://github.com/sigstore/cosign
+    - name: cosign-installer
+      if: github.event_name != 'pull_request'
+      uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
+      with:
+          cosign-release: 'v1.7.1'
+
+    - name: Sign the published Docker image
+      if: ${{ github.event_name != 'pull_request' }}
+      env:
+        COSIGN_EXPERIMENTAL: "true"
+      run:
+        cosign sign ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}@${{ steps.build-and-push.outputs.digest }}
