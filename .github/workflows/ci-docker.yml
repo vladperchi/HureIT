@@ -49,18 +49,18 @@ jobs:
       with:
         context: .
         file: Dockerfile
-        push: ${{ github.event_name != 'pull_request' }}
+        push: ${{ "!contains(github.event_name, 'pull_request')" }}
         tags: ${{ env.DOCKER_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
         labels: ${{ steps.meta.outputs.labels }}
 
     - name: Installer cosign
-      if: github.event_name != 'pull_request'
+      if: "!contains(github.event_name, 'pull_request')"
       uses: sigstore/cosign-installer@d6a3abf1bdea83574e28d40543793018b6035605
       with:
           cosign-release: 'v1.7.1'
 
     - name: Sign the published docker image
-      if: ${{ github.event_name != 'pull_request' }}
+      if: "!contains(github.event_name, 'pull_request')"
       env:
         COSIGN_EXPERIMENTAL: "true"
       run:
