@@ -9,17 +9,17 @@
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <DocumentationFile>HureIT.Modules.Identity.Infrastructure.xml</DocumentationFile>
-        <CodeAnalysisRuleSet>..\..\..\..\hureit.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisRuleSet>..\..\..\..\..\hureit.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
         <DocumentationFile>HureIT.Modules.Identity.Infrastructure.xml</DocumentationFile>
-        <CodeAnalysisRuleSet>..\..\..\..\hureit.ruleset</CodeAnalysisRuleSet>
+        <CodeAnalysisRuleSet>..\..\..\..\..\hureit.ruleset</CodeAnalysisRuleSet>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.17" />
-      <PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
+      <PackageReference Include="Roslynator.Analyzers" Version="4.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>

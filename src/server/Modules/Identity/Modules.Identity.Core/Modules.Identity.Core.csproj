@@ -20,7 +20,7 @@
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="5.0.17" />
       <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.17" />
-      <PackageReference Include="Roslynator.Analyzers" Version="4.1.0">
+      <PackageReference Include="Roslynator.Analyzers" Version="4.0.0">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
