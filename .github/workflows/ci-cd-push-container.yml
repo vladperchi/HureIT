@@ -20,7 +20,6 @@ env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     IMAGE_NAME: webapi-hureit-netcore
     IMAGE_TAG: 0.0.${{ github.run_number }}
-    TAGS: ${{ github.sha }}
 
 jobs:
 
@@ -36,21 +35,47 @@ jobs:
       run:
         docker build . --file Dockerfile --tag $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG --build-arg=token=ZGEzNTQ5Y2QyNjAx --no-cache
 
-    - name: Run Trivy vulnerability scanner
-      uses: aquasecurity/trivy-action@master
-      continue-on-error: true
+    # Install the cosign tool except on PR
+    # https://github.com/sigstore/cosign-installer
+    - name: Install cosign
+      if: github.event_name != 'pull_request'
+      uses: sigstore/cosign-installer@97fc222cee5f3428fcb0c9054e169031378e4e36
       with:
-        image-ref: '${{ env.REGISTRY }}/${{ env.DOCKER_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}'
-        format: 'table'
-        exit-code: '1'
-        ignore-unfixed: true
-        vuln-type: 'os,library'
-        severity: 'MEDIUM,HIGH,CRITICAL'
+          cosign-release: 'v1.6.0'
 
-    - name: Login to Docker Hub
-      run: |
-        echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
+    # Login against a Docker registry except on PR
+    # https://github.com/docker/login-action
+    - name: Log into registry ${{ env.REGISTRY }}
+      if: github.event_name != 'pull_request'
+      uses: docker/login-action@v1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
+    # Extract metadata (tags, labels) for Docker
+    # https://github.com/docker/metadata-action
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@v1
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
+    # Build and push Docker image with Buildx (don't push on PR)
+    # https://github.com/docker/build-push-action
     - name: Push Image to Docker Hub
+      id: build-and-push
+      uses: docker/build-push-action@v2
+      with:
+        push: ${{ github.event_name != 'pull_request' }}
+        tags: ${{ env.DOCKER_REPOSITORY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+        labels: ${{ steps.meta.outputs.labels }}
+
+    # Sign the resulting Docker image digest except on PRs.
+    # https://github.com/sigstore/cosign
+    - name: Sign the published Docker image
+      if: ${{ github.event_name != 'pull_request' }}
+      env:
+        COSIGN_EXPERIMENTAL: "true"
       run:
-        docker push $DOCKER_REPOSITORY/$IMAGE_NAME:$IMAGE_TAG
+        cosign sign ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build-and-push.outputs.digest }}
