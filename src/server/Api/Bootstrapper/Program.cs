@@ -23,6 +23,7 @@ namespace HureIT.Bootstrapper
             var host = CreateHostBuilder(args).Build();
             try
             {
+                Log.Information("Database Connection Sure And Migration Successfully");
                 Log.Information("Server Starting Up...");
                 Log.Information("Welcome {Name} from thread {ThreadId}", Environment.UserName, Thread.CurrentThread.ManagedThreadId);
                 host.Run();
