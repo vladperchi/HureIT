@@ -54,7 +54,7 @@ namespace HureIT.Shared.Infrastructure.Extensions
                 .UseFilter(new HangfireLogJobFilter())
                 .UseConsole());
 
-            Log.Logger.Information("Established Scheme Hangfire and its tables Successfully");
+            Log.Logger.Information("Connected Scheme Hangfire and its tables Successfully");
             return services;
         }
 

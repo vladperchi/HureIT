@@ -30,7 +30,7 @@ namespace HureIT.Modules.Workflow.Infrastructure.Extensions
             services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IPermitTypeService, PermitTypeService>();
             services.AddTransient<IPermitService, PermitService>();
-            Log.Logger.Information("Established Scheme Workflow and its tables Successfully");
+            Log.Logger.Information("Connected Scheme Workflow and its tables Successfully");
             return services;
         }
 

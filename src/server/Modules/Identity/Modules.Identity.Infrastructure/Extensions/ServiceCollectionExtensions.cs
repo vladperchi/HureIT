@@ -40,7 +40,7 @@ namespace HureIT.Modules.Identity.Infrastructure.Extensions
                 .AddTransient<IStatsService, StatsService>()
                 .AddDatabaseContext<IdentityDbContext>()
                 .AddScoped<IIdentityDbContext>(provider => provider.GetService<IdentityDbContext>());
-            Log.Logger.Information("Established Scheme Identity and its tables Successfully");
+            Log.Logger.Information("Connected Scheme Identity and its tables Successfully");
             services
                 .AddIdentity<HureUser, HureRole>(options =>
                 {

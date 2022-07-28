@@ -42,8 +42,8 @@ namespace HureIT.Shared.Infrastructure.Persistence
                 services.AddMSSQL<T>(connectionString);
             }
 
-            _logger.Information(string.Format(
-                "DB connection sure and migration successfully for Data Provider {0}", dataProvider.ToUpper()));
+            // _logger.Information(string.Format("DB connection sure and migration successfully for Data Provider {0}", dataProvider.ToUpper()));
+
             return services;
         }
 
