@@ -45,22 +45,6 @@ Autonomous modules with the different set of responsibilities, highly decoupled 
 `Shared`
 The set of shared components for the common abstractions & cross-cutting concerns. This Cross-cutting concerns would use interfaces/events. And yes, domain events are also included in the project using the Mediatr Handler. Each of the modules follows a clean / Onion / Hex architecture design.
 
-### PRO
-
--   Clear Separation of Concerns
--   Easily Scalable
--   Lower complexity compared to Microservices
--   Low operational / deployment costs.
--   Reusability
--   Organized Dependencies
-
-### CONTRA
-
--   Not Multi-technology compatible.
--   Horizontal Scaling can be a concern. But this can be managed via load balancers.
--   nce Interprocess Communication is used, messages may be lost during Application Termination. Microservices combat this ise by using external messaging brokers like Kafka, RabbitMQ.
--   We can make use of message agents but no, let's keep it simple.
-
 Take a look in detail at the [structure][structure-url] of the solution
 
 ## Technology Stack
@@ -111,7 +95,7 @@ Take a look in detail at the [structure][structure-url] of the solution
 
 ## Project Status
 
--   API - `In Progress`
+-   API - `Finished`
 -   Docker - `In Progress`
 -   Angular/UI - `Coming Soon!`
 
