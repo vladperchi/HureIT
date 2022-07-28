@@ -17,7 +17,8 @@ namespace HureIT.Modules.Identity.Infrastructure.Extensions
     {
         internal static IServiceCollection AddPermissions(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>()
+            services
+                .AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>()
                 .AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
             return services;
         }
