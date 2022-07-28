@@ -25,6 +25,7 @@ using FluentValidation.AspNetCore;
 using HureIT.Shared.Core.Constants;
 using HureIT.Shared.Infrastructure.Services;
 using HureIT.Shared.Core.Interfaces.Services;
+using Serilog;
 
 [assembly: InternalsVisibleTo(StringKeys.AssemblyName)]
 
@@ -40,8 +41,8 @@ namespace HureIT.Shared.Infrastructure.Extensions
             services
                 .AddDatabaseContext<ApplicationDbContext>()
                 .AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-
-            services.AddScoped(typeof(IValidatorService), typeof(ValidatorService));
+            Log.Logger.Information("Established Scheme Application and its tables Successfully");
+            services.AddScoped<IValidatorService, ValidatorService>();
             services.AddScoped<IEventLogger, EventLogger>();
             services.AddApiVersioning(options =>
             {

@@ -11,6 +11,7 @@ using HureIT.Shared.Core.Settings;
 using HureIT.Shared.Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace HureIT.Shared.Infrastructure.Extensions
 {
@@ -27,7 +28,7 @@ namespace HureIT.Shared.Infrastructure.Extensions
             services.Configure<TemplateMailSettings>(config.GetSection(nameof(TemplateMailSettings)));
             services.Configure<CorsSettings>(config.GetSection(nameof(CorsSettings)));
             services.Configure<SwaggerSettings>(config.GetSection(nameof(SwaggerSettings)));
-
+            Log.Logger.Information("Established Settings & Services Successfully");
             return services;
         }
     }

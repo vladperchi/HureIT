@@ -43,7 +43,8 @@ namespace HureIT.Shared.Infrastructure.Extensions
             }
 
             _logger.Information($"Hangfire Current Storage Provider : {storageSettings.StorageProvider.ToUpper()}");
-            _logger.Information($"{storageSettings.Documentation}");
+
+            // _logger.Information($"{storageSettings.Documentation}");
 
             services.AddSingleton<JobActivator, HangfireJobActivator>();
             services
@@ -53,6 +54,7 @@ namespace HureIT.Shared.Infrastructure.Extensions
                 .UseFilter(new HangfireLogJobFilter())
                 .UseConsole());
 
+            Log.Logger.Information("Established Scheme Hangfire and its tables Successfully");
             return services;
         }
 

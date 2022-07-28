@@ -19,6 +19,7 @@ using HureIT.Shared.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 
 namespace HureIT.Modules.Identity.Infrastructure.Extensions
 {
@@ -38,7 +39,9 @@ namespace HureIT.Modules.Identity.Infrastructure.Extensions
                 .AddTransient<IRoleClaimService, RoleClaimService>()
                 .AddTransient<IStatsService, StatsService>()
                 .AddDatabaseContext<IdentityDbContext>()
-                .AddScoped<IIdentityDbContext>(provider => provider.GetService<IdentityDbContext>())
+                .AddScoped<IIdentityDbContext>(provider => provider.GetService<IdentityDbContext>());
+            Log.Logger.Information("Established Scheme Identity and its tables Successfully");
+            services
                 .AddIdentity<HureUser, HureRole>(options =>
                 {
                     options.Password.RequiredLength = 8;
@@ -52,7 +55,9 @@ namespace HureIT.Modules.Identity.Infrastructure.Extensions
                 .AddDefaultTokenProviders();
             services.AddTransient<IDbSeeder, IdentityDbSeeder>();
             services.AddPermissions(configuration);
+            Log.Logger.Information("Added Access Permissions Successfully");
             services.AddJwtAuthentication(configuration);
+            Log.Logger.Information("Configured Jwt Authentication Successfully");
             return services;
         }
     }
