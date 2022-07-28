@@ -41,7 +41,7 @@ namespace HureIT.Shared.Infrastructure.Extensions
             services
                 .AddDatabaseContext<ApplicationDbContext>()
                 .AddScoped<IApplicationDbContext>(provider => provider.GetService<ApplicationDbContext>());
-            Log.Logger.Information("Established Scheme Application and its tables Successfully");
+            Log.Logger.Information("Connected Scheme Application and its tables Successfully");
             services.AddScoped<IValidatorService, ValidatorService>();
             services.AddScoped<IEventLogger, EventLogger>();
             services.AddApiVersioning(options =>
